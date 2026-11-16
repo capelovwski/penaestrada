@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 14 223 81">
+  <g>
+    <path d="M16 24h177l29 20v37H10V33Z" fill="#1c3c25" />
+    <path d="M19 30h169l26 18v20H17Z" fill="#e9e4d2" />
+    <path d="M16 66h202v7H16Z" fill="#eb3330" />
+    <path d="M23 35h21v25H23Zm26 0h21v25H49Zm26 0h21v25H75Zm26 0h21v25h-21Zm26 0h21v25h-21Zm26 0h21v25h-21Zm27 0h7l24 16v9h-31Z" fill="#1c3c25" />
+    <path d="M25 36h17v4H25Zm26 0h17v4H51Zm26 0h17v4H77Zm26 0h17v4h-17Zm26 0h17v4h-17Zm26 0h17v4h-17Z" fill="#749485" />
+    <path d="M39 20h115v4H39Zm10-4h24v4H49Zm64 0h24v4h-24Z" fill="#1c3c25" />
+    <path d="M215 67h7v5h-7Z" fill="#e9e4d2" />
+    <path d="M10 68h5v5h-5Z" fill="#eb3330" />
+    <path d="M223 44h6v15h-4V47h-2Z" fill="#1c3c25" />
+  </g>
+  <g transform="translate(49 80)">
+    <circle r="13" fill="#1c3c25" />
+    <circle r="8" fill="#e9e4d2" />
+    <g>
+      <path d="M-2-8h4V8h-4ZM-8-2H8v4H-8Z" fill="#1c3c25" />
+      <circle r="3" fill="#eb3330" />
+    </g>
+  </g>
+  <g transform="translate(181 80)">
+    <circle r="13" fill="#1c3c25" />
+    <circle r="8" fill="#e9e4d2" />
+    <g>
+      <path d="M-2-8h4V8h-4ZM-8-2H8v4H-8Z" fill="#1c3c25" />
+      <circle r="3" fill="#eb3330" />
+    </g>
+  </g>
+</svg>

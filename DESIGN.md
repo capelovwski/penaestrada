@@ -1,59 +1,68 @@
 # Pé na Estrada — Direção visual
 
-Retrô anos 70, clima de acampamento e de parques nacionais. Parece material impresso:
-cartaz, flâmula, adesivo, cartão-postal. Nada de "app" ou SaaS.
+Viagem missionária da Juventude Cross (Igreja Batista do Bacacheri) a Ponta Grossa, PR, em 2027.
 
-Referências: The Spin Room (blocos chapados de verde/laranja, títulos display enormes),
-Youth Camp / Happy Campers (script cursivo sobre display, patches e badges),
-pôster de parques nacionais (tipografia variada em uma cor só sobre verde-escuro),
-press kit Roots (adesivos recortados, flâmula, pulseira).
+Retrô anos 70, clima de acampamento e de parques nacionais. A página precisa parecer material
+impresso: cartaz, flâmula, adesivo, bilhete de viagem. Nada de "app" ou SaaS.
+
+Referências: The Spin Room (blocos chapados, títulos display enormes), Youth Camp / Happy Campers
+(script cursivo sobre display, patches e badges), pôster de parques nacionais (tipografia em uma
+cor só sobre verde-escuro), press kit Roots (adesivos recortados, flâmula).
+
+## Peças da marca (`assets/marca/`)
+
+| Arquivo | Uso na página |
+|---|---|
+| `lettering-creme.svg` | Título do hero (h1) e logo do topo |
+| `lettering-verde.svg` | Reserva, para fundo claro |
+| `logo-original.svg` | Centro do selo do hero (círculo vermelho + lettering) |
+| `anel-do-selo.svg` | Anel do selo do hero, girando devagar atrás da logo |
+| `selo-completo-original.svg` | Rodapé |
+| `logo-completa-texto-invertido.svg` | Reserva |
+| `bandeirinha-27-original.svg` | Flâmula no hero |
+| `emblema-pedra-original.svg` | Vila Velha (a Taça): hero e seção Destino |
+| `onibus.svg` | Ônibus andando na estrada, seção Destino |
+| `saleiro-original.svg` | **Saleirinho, o mascote**: hero e Dúvidas |
+| `saleiro-silhueta-*.svg` | Marca d'água no rodapé |
+| `prancha-original-completa.svg` | Prancha de referência (2,7 MB). Não é usada na página |
 
 ## Cores
 
-| Token            | Hex       | Uso                                              |
-|------------------|-----------|--------------------------------------------------|
-| `--verde`        | `#1F4A2C` | Cor principal, fundos de seção, texto sobre creme |
-| `--verde-escuro` | `#14321D` | Rodapé, seções de contraste                     |
-| `--laranja`      | `#E3612B` | Destaques, faixas, botões principais            |
-| `--creme`        | `#F2E8CF` | Fundo claro, texto sobre verde/laranja          |
-| `--mostarda`     | `#F0C94A` | Detalhe pontual (selos, sublinhados). Pouco.    |
-| `--salvia`       | `#A9C98A` | Tipografia monocromática sobre verde-escuro     |
-| `--tinta`        | `#1C1A15` | Texto longo sobre creme                         |
+| Token              | Hex       | Uso |
+|--------------------|-----------|-----|
+| `--verde`          | `#1c3c25` | Cor da marca. Fundos de seção, texto sobre creme |
+| `--verde-escuro`   | `#132a1a` | Destino, rodapé, sombras duras |
+| `--creme`          | `#e9e4d2` | Cor da marca. Fundo claro, texto sobre verde |
+| `--vermelho`       | `#eb3330` | Cor da marca. Faixas, botões, formas. Texto creme só em tamanho grande |
+| `--vermelho-escuro`| `#c4221f` | Quando há texto corrido sobre vermelho (contraste AA) |
+| `--areia`          | `#f3e0b7` | Rótulos sobre verde, adesivo claro |
+| `--amarelo`        | `#f5d547` | **Só** para marcadores de conteúdo pendente (`.ph`) |
 
-Regra: cada bloco usa no máximo 2 cores + creme. Sem gradiente. Sem sombra difusa —
-sombra só "dura" (offset sólido), como adesivo.
+Regras: no máximo 2 cores + creme por bloco. Sem gradiente. Sombra só "dura" (offset sólido),
+como adesivo.
 
 ## Tipografia
 
-Fontes da identidade (arquivos em `assets/fonts/`, woff2):
+- **Hartman & Richard** (`assets/fonts/`): script de pincel. Palavras curtas sobre títulos,
+  versículo, títulos dos cartões de apoio. O "s" alongado faz parte do desenho da fonte.
+- **Rhinayza** (`assets/fonts/`): assinatura fina. Legendas de foto. Sempre ≥ 2rem.
+- **Fraunces** 900, SOFT 100 (Google Fonts): títulos display em caixa-alta, com cara de Cooper.
+- **Jost** (Google Fonts): texto corrido e rótulos espaçados. É a mesma fonte do anel do selo.
 
-- **Hartman & Richard** (normal/itálico): script de pincel forte. É a "assinatura" do projeto:
-  "Pé na Estrada", palavras-chave sobre títulos display. No máximo 1 por bloco.
-- **Rhinayza** (normal/itálico): script fino de assinatura. Notas à mão, legendas de foto,
-  "assinado: equipe". Sempre grande (≥ 2rem), porque o traço é fino demais pra tamanho pequeno.
-
-Complementares (Google Fonts):
-
-- **Fraunces** 800–900, eixo SOFT alto: títulos display em bloco, com cara de Cooper/anos 70.
-- **Archivo** (variável, largura 62–125): rótulos condensados em caixa-alta e espaçados
-  ("EST. 2027", "EDIÇÃO #01"), e texto corrido em largura normal.
-
-Escala: display em `clamp()` grande (até ~10rem no hero); corpo 1.0625rem / 1.55.
+As fontes Hartman e Rhinayza são comerciais. Confirmar se a licença cobre uso na web.
 
 ## Elementos
 
-- Badges circulares com texto em caminho (SVG), patches em arco, flâmula.
-- Cartões "adesivo": borda creme grossa, leve rotação, sombra dura.
-- Faixa letreiro (marquee) laranja entre seções.
-- Textura de grão (SVG `feTurbulence`) por cima de tudo, baixa opacidade.
-- Ícones em traço único: pinheiro, montanha, sol, fogueira, estrada.
-- Fotos com tratamento quente (sépia leve + contraste), como filme.
+- Selo circular, flâmula, emblema em arco, adesivos levemente girados com borda creme.
+- Letreiro vermelho rolando entre seções.
+- Bilhetes de viagem com recorte lateral (roteiro).
+- Grão de filme (SVG `feTurbulence`) por cima de tudo, baixa opacidade.
 
 ## Movimento
 
-Pouco e lento: o letreiro rola, os badges giram devagar, e há um leve fade/slide ao rolar a página.
-Tudo desliga com `prefers-reduced-motion`.
+O anel do selo gira, a flâmula tremula, o saleirinho anda, o ônibus atravessa a estrada e o
+letreiro rola. Tudo desliga com `prefers-reduced-motion`.
 
 ## Tema
 
-Paleta fixa e intencional, sem modo escuro: as seções verdes já fazem o papel de escuro.
+Paleta fixa, sem modo escuro: as seções verdes já fazem o papel do escuro.
