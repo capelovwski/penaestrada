@@ -31,6 +31,7 @@
       <nav aria-label="Seções">
         <ul class="nav">
           <li><a href="#viagem">A viagem</a></li>
+          <li><a href="#outras-vms">Outras VMs</a></li>
           <li><a href="#roteiro">Roteiro</a></li>
           <li><a href="#apoiar">Apoiar</a></li>
           <li><a href="#cross-run">Cross Run</a></li>
@@ -62,14 +63,25 @@
           </div>
         </div>
 
-        <div class="hero__arte" aria-hidden="true">
-          <div class="selo">
+        <div class="hero__arte">
+          <figure class="polaroid hero__foto hero__foto--1">
+            <div class="foto-slot" data-foto="hero-1"><span class="ph">[FOTO VM 1]</span></div>
+            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
+          </figure>
+          <figure class="polaroid hero__foto hero__foto--2">
+            <div class="foto-slot" data-foto="hero-2"><span class="ph">[FOTO VM 2]</span></div>
+            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
+          </figure>
+          <figure class="polaroid hero__foto hero__foto--3">
+            <div class="foto-slot" data-foto="hero-3"><span class="ph">[FOTO VM 3]</span></div>
+            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
+          </figure>
+          <div class="selo" aria-hidden="true">
             <img class="selo__anel" src="assets/marca/pe-na-estrada-anel-do-selo.svg" alt="">
             <img class="selo__logo" src="assets/marca/pe-na-estrada-logo-original.svg" alt="">
           </div>
-          <img class="hero__bandeira" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="">
-          <img class="hero__pedra" src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="">
-          <img class="hero__saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="">
+          <img class="hero__bandeira" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="" aria-hidden="true">
+          <img class="hero__saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="" aria-hidden="true">
         </div>
       </div>
     </section>
@@ -87,9 +99,7 @@
       <div class="wrap">
         <div class="viagem__painel revela">
           <figure class="foto">
-            <div class="foto__vazia">
-              <span class="ph">[FOTO: juventude reunida ou Ponta Grossa]</span>
-            </div>
+            <div class="foto-slot" data-foto="viagem"><span class="ph">[FOTO: juventude reunida]</span></div>
             <figcaption class="nota">Ponta Grossa, PR</figcaption>
           </figure>
           <div class="viagem__texto">
@@ -109,6 +119,47 @@
               dito com palavras e com atitudes.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTRAS VMs -->
+    <section class="mural secao" id="outras-vms" aria-labelledby="mural-t">
+      <div class="wrap">
+        <div class="cabeca mural__cabeca">
+          <p class="script cabeca__script" aria-hidden="true">outras VMs</p>
+          <h2 class="display display--lg" id="mural-t">A estrada até aqui</h2>
+          <p class="mural__lead">A Juventude Cross já pôs o pé na estrada antes. <span class="ph">[Desde quando a juventude faz viagens missionárias e por onde já passou]</span></p>
+        </div>
+        <div class="mural__grade">
+          <figure class="polaroid mural__item mural__item--grande revela">
+            <div class="foto-slot" data-foto="mural-1"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · Rio Negro, PR</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item  revela">
+            <div class="foto-slot" data-foto="mural-2"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item mural__item--alto revela">
+            <div class="foto-slot" data-foto="mural-3"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item  revela">
+            <div class="foto-slot" data-foto="mural-4"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item mural__item--largo revela">
+            <div class="foto-slot" data-foto="mural-5"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item  revela">
+            <div class="foto-slot" data-foto="mural-6"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
+          <figure class="polaroid mural__item  revela">
+            <div class="foto-slot" data-foto="mural-7"><span class="ph">[FOTO]</span></div>
+            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -217,6 +268,12 @@
           </li>
         </ol>
       </div>
+    </section>
+
+    <!-- FAIXA DE FOTO -->
+    <section class="faixa" aria-label="Foto de uma viagem anterior">
+      <div class="foto-slot" data-foto="faixa"><span class="ph">[FOTO GRANDE: grupo reunido numa VM]</span></div>
+      <p class="faixa__texto" aria-hidden="true"><span class="script">vem com a</span> <span class="display">gente</span></p>
     </section>
 
     <!-- COMO IR -->
