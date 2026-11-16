@@ -11,8 +11,9 @@ Identidade visual: Lovwski (Murilo Capelo). O site segue a linguagem do estudo d
   ("02 · A ideia"), texto em sans neutro, fichas técnicas com linhas finas.
 - **Adesivos da marca com sombra macia** (nada de sombra dura).
 - **Fotos das VMs anteriores** como protagonistas: rolos no topo e galeria horizontal.
-- **Movimento com propósito**: cada animação conta algo da viagem (ônibus no trajeto,
-  quilômetros subindo, saleiro andando, selo girando).
+- **Movimento sóbrio**: entradas suaves (expo), sem quiques elásticos, sem cursor
+  personalizado, sem elementos "de brinquedo". O que se move conta algo da viagem:
+  o contorno do município se desenhando, o selo girando devagar, os rolos de fotos.
 
 ## Cores
 
@@ -38,14 +39,18 @@ Quando os arquivos de Choldem Rosther e Nikey Vintage estiverem disponíveis, ba
 
 ## Seções
 
-01 Topo (selo + versículo + rolos de fotos + estrada com ônibus) · 02 A ideia · 03 Destino
-(emblema + trajeto animado de 115 km) · 04 Na prática (frentes + adesivos arrastáveis) ·
+01 Topo (contorno do município de Ponta Grossa se desenhando atrás do selo + versículo +
+rolos de fotos) · 02 A ideia · 03 Destino (emblema + faixa de dados) · 04 Na prática
+(frentes + composição de adesivos com profundidade) ·
 05 Equipes (Geral, Staff, Saúde) · 06 Roteiro (cartão de embarque + dias) · 07 Outras VMs
 (galeria horizontal) · 08 Como ir · 09 Cross Run (abas automáticas) · 10 Apoie · 11 Dúvidas · Fim.
 
 ## Movimento
 
-GSAP 3.12.5 (ScrollTrigger, Draggable) e Lenis 1.1.13, por CDN. Sem eles, ou com
+GSAP 3.12.5 (ScrollTrigger) e Lenis 1.1.13, por CDN. O contorno do mapa é CSS puro
+(máscara SVG que se desenha em ~4 s e pontilhado que corre devagar pela borda), então
+funciona mesmo sem as bibliotecas. O traçado foi extraído da divisa do município no mapa
+de referência e suavizado. Sem eles, ou com
 "reduzir movimento", a página continua completa e estática. Empilhamento e galeria
 horizontal só a partir de 900px; no celular, a galeria rola com o dedo.
 

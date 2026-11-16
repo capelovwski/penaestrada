@@ -333,7 +333,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 640px) {
   .hero__rotulos span:nth-child(2) { display: none; }
   .hero__rotulos { font-size: 0.66rem; white-space: nowrap; }
-  .rota__topo { font-size: 0.64rem; }
+  
 }
 
 .hero__centro {
@@ -393,37 +393,6 @@ html.js .rolo__trilho { animation: rolar 70s linear infinite; }
 html.js .rolo__linha--volta .rolo__trilho { animation-direction: reverse; animation-duration: 80s; }
 @keyframes rolar { to { transform: translateX(-50%); } }
 
-.estrada {
-  position: relative;
-  margin-top: clamp(40px, 6vw, 72px);
-  background: var(--verde);
-  height: 128px;
-  overflow: hidden;
-}
-.estrada::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 26px;
-  height: 66px;
-  background: var(--estrada);
-}
-.estrada::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 88px;
-  height: 4px;
-  background: repeating-linear-gradient(90deg, var(--creme) 0 36px, transparent 36px 64px);
-  opacity: 0.9;
-}
-.estrada__frota {
-  position: absolute;
-  top: 18px;
-  display: flex;
-  width: max-content;
-}
-.estrada__frota img { height: 66px; width: auto; margin-right: clamp(80px, 10vw, 160px); }
-html.js .estrada__frota { animation: rolar 34s linear infinite; }
-
 /* ---------- 02 · a ideia ---------- */
 .ideia__grade {
   display: grid;
@@ -476,54 +445,6 @@ html.anima .manifesto .p { opacity: 0.22; }
   transition: transform 0.6s var(--ease);
 }
 
-.rota { position: relative; margin-top: clamp(72px, 9vw, 120px); }
-.rota__topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.rota__km { text-align: center; }
-.rota__km b {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-  margin-right: 4px;
-}
-.rota__mapa { width: 100%; height: clamp(110px, 17vw, 220px); overflow: visible; }
-.rota__base {
-  fill: none;
-  stroke: var(--verde);
-  stroke-opacity: 0.35;
-  stroke-width: 3;
-  stroke-dasharray: 1 12;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-.rota__traco {
-  fill: none;
-  stroke: var(--vermelho);
-  stroke-width: 4;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-.rota__pino { fill: var(--verde); }
-.rota__pino--fim { fill: var(--vermelho); }
-.rota__onibus {
-  position: absolute;
-  left: 0; top: 0;
-  width: clamp(64px, 8vw, 112px);
-  height: auto;
-  display: none;
-  pointer-events: none;
-  filter: drop-shadow(0 6px 8px rgba(28, 60, 37, 0.25));
-}
-html.anima .rota__onibus { display: block; }
-.rota__nota { margin-top: 16px; opacity: 0.7; }
-
 /* ---------- 04 · na prática ---------- */
 .pratica__grade {
   display: grid;
@@ -560,24 +481,16 @@ html.anima .rota__onibus { display: block; }
   background: rgba(0, 0, 0, 0.14);
   touch-action: pan-y;
 }
-.mural-adesivos__dica {
-  position: absolute;
-  left: 0; right: 0; bottom: 16px;
-  text-align: center;
-  opacity: 0.55;
-  pointer-events: none;
-}
+
 .adesivo {
   position: absolute;
   height: auto;
-  cursor: grab;
   user-select: none;
-  -webkit-user-drag: none;
-  touch-action: none;
+  pointer-events: none;
   filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.35));
   will-change: transform;
 }
-.adesivo:active { cursor: grabbing; }
+
 .a-selo { left: 28%; top: 20%; width: 44%; rotate: 4deg; }
 .a-bandeira { left: 3%; top: 5%; width: 34%; rotate: -10deg; }
 .a-pedra { right: 5%; top: 5%; width: 22%; rotate: 9deg; }
@@ -671,7 +584,7 @@ html.anima .rota__onibus { display: block; }
   margin-block: 6px;
 }
 .passe__dir { text-align: right; }
-.passe__onibus { width: clamp(60px, 9vw, 130px); }
+
 .passe__campos {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -735,7 +648,7 @@ html.anima .rota__onibus { display: block; }
   .passe__barras { width: 96px; height: 44px; }
   .passe__trecho { grid-template-columns: 1fr; gap: 10px; }
   .passe__dir { text-align: left; }
-  .passe__onibus { width: 92px; margin: 2px 0; }
+  
 }
 
 .dias {
@@ -791,7 +704,6 @@ html.anima .rota__onibus { display: block; }
 .g-item--largo .foto { height: clamp(240px, 38vh, 420px); }
 .g-item figcaption { margin-top: 12px; opacity: 0.75; }
 .galeria__fim { width: min(82vw, 440px); align-self: center; padding-left: clamp(8px, 3vw, 48px); }
-.galeria__fim .script { font-size: clamp(2.6rem, 5vw, 3.6rem); color: var(--creme-2); transform: rotate(-5deg); margin-bottom: -0.1em; }
 
 /* ---------- 08 · como ir ---------- */
 .ir__grade {
@@ -800,36 +712,8 @@ html.anima .rota__onibus { display: block; }
   align-items: start;
 }
 @media (min-width: 960px) { .ir__grade { grid-template-columns: 1fr 1.05fr; } }
-.ir__script {
-  font-size: clamp(4rem, 10vw, 8rem);
-  transform: rotate(-6deg);
-  transform-origin: left bottom;
-  margin-bottom: -0.05em;
-}
+
 .ir__chamada .titulo { max-width: 9em; }
-.girador {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 168px;
-  height: 168px;
-  margin-top: clamp(32px, 4vw, 48px);
-  border-radius: 50%;
-  background: var(--creme);
-  color: var(--verde);
-  transition: transform 0.5s var(--ease);
-}
-.girador svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: girar 16s linear infinite; }
-.girador text { font-family: var(--f-mono); font-size: 13.2px; font-weight: 500; letter-spacing: 0.12em; fill: var(--verde); }
-.girador__seta {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 3rem;
-  line-height: 1;
-  transition: transform 0.5s var(--ease);
-}
-.girador:hover { transform: scale(1.06); }
-.girador:hover .girador__seta { transform: rotate(45deg); }
 
 .ficha-ir {
   --linha: rgba(28, 60, 37, 0.18);
@@ -956,13 +840,6 @@ html.anima .rota__onibus { display: block; }
 .pix { display: grid; gap: 8px; justify-items: start; margin-top: 6px; }
 .pix .mono { opacity: 0.6; }
 .pix__chave { font-family: var(--f-mono); font-size: 1rem; word-break: break-all; }
-.trilha-saleiro {
-  position: relative;
-  height: 96px;
-  margin-top: clamp(64px, 8vw, 100px);
-  border-bottom: 1.5px dashed rgba(28, 60, 37, 0.35);
-}
-.trilha-saleiro img { position: absolute; left: 4%; bottom: -3px; width: 78px; }
 
 /* ---------- 11 · dúvidas ---------- */
 .duvidas__grade { display: grid; gap: clamp(32px, 5vw, 64px); align-items: start; }
@@ -1001,10 +878,10 @@ html.anima .rota__onibus { display: block; }
 
 /* ---------- 12 · fim ---------- */
 .fim { padding-bottom: 0; }
-.fim__centro { display: grid; justify-items: center; text-align: center; gap: clamp(24px, 3vw, 36px); }
+.fim__centro { display: grid; justify-items: center; text-align: center; gap: clamp(24px, 3vw, 36px); padding-bottom: clamp(88px, 10vw, 140px); }
 .fim__frase { max-width: 10em; }
 .fim .hero__acoes { margin-top: 0; }
-.estrada--fim { margin-top: clamp(72px, 9vw, 120px); }
+
 .fim__base {
   display: flex;
   flex-wrap: wrap;
@@ -1020,37 +897,137 @@ html.anima .rota__onibus { display: block; }
 .fim__assina img { width: 54px; height: auto; }
 .fim__contatos { display: inline-flex; gap: 14px; }
 
-/* ---------- cursor ---------- */
-.cursor { display: none; }
-@media (hover: hover) and (pointer: fine) {
-  html.anima .cursor {
-    display: grid;
-    place-items: center;
-    position: fixed;
-    left: 0; top: 0;
-    z-index: 250;
-    width: 12px;
-    height: 12px;
-    margin: -6px 0 0 -6px;
-    border-radius: 50%;
-    background: var(--vermelho);
-    pointer-events: none;
-    opacity: 0;
-    transition: width 0.35s var(--ease), height 0.35s var(--ease), margin 0.35s var(--ease), opacity 0.3s;
-  }
-  html.anima .cursor.ativo { opacity: 1; }
-  html.anima .cursor.grande { width: 88px; height: 88px; margin: -44px 0 0 -44px; }
-  .cursor span {
-    font-family: var(--f-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--creme);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .cursor.grande span { opacity: 1; }
+/* ---------- mapa de Ponta Grossa (topo) ---------- */
+.hero__palco {
+  position: relative;
+  width: min(900px, 100%, calc((100svh - 330px) * 1.39));
+  min-width: min(620px, 100%);
+  aspect-ratio: 596 / 428;
+  display: grid;
+  place-items: center;
 }
+.mapa {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  max-width: none;
+}
+.mapa__area { fill: var(--verde); fill-opacity: 0.045; stroke: none; }
+.mapa__linha {
+  fill: none;
+  stroke: var(--verde);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0.1 8;
+  vector-effect: non-scaling-stroke;
+}
+.mapa__revela {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 40;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+html.js .mapa__revela { animation: mapa-desenha 4.2s cubic-bezier(0.65, 0, 0.35, 1) 0.2s both; }
+html.js .mapa__linha { animation: mapa-anda 2.8s linear infinite; }
+html.js .mapa__area { animation: mapa-preenche 1.6s ease 3.4s both; }
+@keyframes mapa-desenha { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes mapa-anda { to { stroke-dashoffset: -16.2; } }
+@keyframes mapa-preenche { from { fill-opacity: 0; } to { fill-opacity: 0.045; } }
+
+.mapa__nota {
+  position: absolute;
+  margin: 0;
+  font-size: 0.68rem;
+  opacity: 0.7;
+  text-align: left;
+}
+.mapa__nota--a { left: 0; bottom: 2%; }
+.mapa__nota--b { right: 0; top: 2%; text-align: right; }
+.hero__palco .selo { width: 40%; }
+
+@media (max-width: 760px) {
+  .hero__palco { width: 100%; min-width: 0; margin-block: 14% 12%; }
+  .mapa { inset: -25% -25%; width: 150%; height: 150%; }
+  .hero__palco .selo { width: 64%; }
+  .mapa__nota { display: none; }
+}
+
+/* ---------- destino: dados ---------- */
+.dados {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(72px, 9vw, 120px);
+  border-top: 1px solid var(--linha);
+}
+.dados > div {
+  padding: 22px clamp(12px, 2vw, 24px) 0 0;
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+.dados > div + div { padding-left: clamp(12px, 2vw, 24px); border-left: 1px solid var(--linha); }
+.dados dt { opacity: 0.65; }
+.dados dd:not(.dados__sub) {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-variation-settings: "wdth" 92;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.dados__sub { opacity: 0.6; }
+@media (max-width: 760px) {
+  .dados { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dados > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .dados > div:nth-child(n + 3) { margin-top: 22px; border-top: 1px solid var(--linha); }
+}
+
+/* ---------- cartão de embarque: miolo ---------- */
+.passe__meio {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  opacity: 0.7;
+  min-width: clamp(80px, 12vw, 180px);
+}
+.passe__seta {
+  position: relative;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+}
+.passe__seta::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+@media (max-width: 760px) {
+  .passe__meio { justify-items: start; min-width: 0; width: 60%; }
+}
+
+/* ---------- ajustes de sobriedade ---------- */
+.botao--g { min-height: 60px; padding: 0 32px; font-size: 1.05rem; margin-top: clamp(28px, 4vw, 44px); }
+.apoio__titulo {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-variation-settings: "wdth" 92;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.apoio h3 { font-size: unset; }
+.apoio .apoio__titulo { font-size: clamp(2rem, 3.4vw, 2.8rem); }
 
 /* ---------- aviso ---------- */
 .aviso {
