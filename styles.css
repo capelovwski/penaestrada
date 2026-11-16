@@ -446,13 +446,20 @@ a { color: inherit; }
   margin-left: 0.6em;
   text-shadow: 3px 3px 0 var(--verde-escuro);
 }
-.destino__pedra {
-  width: min(70%, 300px);
-  height: auto;
+.destino__emblema {
   justify-self: center;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  text-align: center;
+}
+.destino__pedra {
+  width: min(70vw, 300px);
+  height: auto;
   transform: rotate(6deg);
   filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.35));
 }
+.destino__emblema figcaption { color: var(--areia); font-size: 0.75rem; }
 .estrada {
   grid-column: 1 / -1;
   position: relative;
@@ -687,6 +694,14 @@ a { color: inherit; }
 /* ---------- versículo ---------- */
 .versiculo { text-align: center; }
 .versiculo__fig { max-width: 980px; margin-inline: auto; }
+.versiculo__rotulo { color: var(--vermelho-escuro); margin-bottom: 18px; }
+.versiculo blockquote p.versiculo__intro {
+  font-family: var(--f-texto);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--verde);
+  margin-bottom: 10px;
+}
 .versiculo blockquote p {
   font-family: var(--f-script);
   color: var(--verde);
@@ -757,6 +772,131 @@ a { color: inherit; }
   font-size: 1.15rem;
   word-break: break-all;
   margin-block: 6px 14px;
+}
+
+/* ---------- cross run ---------- */
+.corrida { background: var(--vermelho-escuro); color: var(--creme); overflow: hidden; }
+.corrida__grade {
+  display: grid;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: center;
+}
+@media (min-width: 960px) { .corrida__grade { grid-template-columns: 1fr 1.1fr; } }
+.corrida__chamada { min-width: 0; }
+.corrida__chamada .rotulo { color: var(--areia); }
+.corrida__titulo { margin-block: 10px 18px; line-height: 0.85; }
+.corrida__cross {
+  display: block;
+  font-family: var(--f-display);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 900;
+  font-size: clamp(4rem, 13vw, 8rem);
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  color: var(--creme);
+  text-shadow: 6px 6px 0 var(--verde-escuro);
+}
+.corrida__run {
+  display: block;
+  font-size: clamp(3.4rem, 10vw, 6rem);
+  color: var(--areia);
+  transform: rotate(-6deg);
+  margin: -0.2em 0 0.35em 1.6em;
+}
+.corrida__lead {
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.35;
+  max-width: 28rem;
+}
+.corrida__info {
+  display: grid;
+  gap: 10px;
+  margin-block: 22px 30px;
+  max-width: 34rem;
+}
+.corrida__info li {
+  padding-left: 22px;
+  position: relative;
+}
+.corrida__info li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.6em;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--areia);
+}
+.corrida .btn--verde { box-shadow: 4px 4px 0 var(--verde-escuro); }
+
+/* números de peito */
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+.numero {
+  --bg: var(--creme);
+  --fg: var(--verde);
+  --furo: var(--vermelho-escuro);
+  position: relative;
+  background:
+    radial-gradient(circle 6px at 16px 16px, var(--furo) 98%, transparent) ,
+    radial-gradient(circle 6px at calc(100% - 16px) 16px, var(--furo) 98%, transparent),
+    radial-gradient(circle 6px at 16px calc(100% - 16px), var(--furo) 98%, transparent),
+    radial-gradient(circle 6px at calc(100% - 16px) calc(100% - 16px), var(--furo) 98%, transparent),
+    var(--bg);
+  color: var(--fg);
+  border-radius: 12px;
+  padding: 18px 20px 20px;
+  text-align: center;
+  box-shadow: 6px 6px 0 var(--verde-escuro);
+  transform: rotate(var(--r, -1.5deg));
+  min-width: 0;
+}
+.numero:nth-child(2) { --r: 1.5deg; }
+.numero:nth-child(3) { --r: 1deg; }
+.numero:nth-child(4) { --r: -1deg; }
+.numero--verde { --bg: var(--verde); --fg: var(--creme); }
+.numero__topo {
+  display: inline-block;
+  background: var(--vermelho-escuro);
+  color: var(--creme);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .numero { padding-inline: 14px; }
+  .numero__topo { font-size: 0.68rem; letter-spacing: 0.1em; padding-inline: 10px; }
+}
+.numero--verde .numero__topo { background: var(--creme); color: var(--verde); }
+.numero__grande {
+  font-family: var(--f-display);
+  font-variation-settings: "SOFT" 100;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  line-height: 1.05;
+  margin-block: 10px 6px;
+  font-variant-numeric: tabular-nums;
+}
+.numero__grande--texto { font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.1; }
+.numero__pe {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.corrida__nota {
+  grid-column: 1 / -1;
+  font-family: var(--f-nota);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--areia);
+  text-align: center;
 }
 
 /* ---------- dúvidas ---------- */
@@ -835,6 +975,8 @@ a { color: inherit; }
   text-align: left;
 }
 .rodape__base .rotulo { color: var(--areia); font-size: 0.75rem; }
+.rodape__assina { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.rodape__cross { width: 84px; height: auto; }
 .contatos { display: flex; flex-wrap: wrap; gap: 12px 18px; }
 .contatos a { text-decoration: none; }
 .rodape__saleiro {
