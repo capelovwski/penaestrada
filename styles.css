@@ -867,19 +867,18 @@ a { color: inherit; }
 .aviso.mostra { transform: translate(-50%, 0); visibility: visible; transition: transform 0.25s ease; }
 
 /* ---------- revelar ao rolar ---------- */
-.js .revela {
-  opacity: 0;
-  translate: 0 24px;
-  transition: opacity 0.6s ease, translate 0.6s ease;
+/* blocos ficam sempre visíveis; ao entrar na tela, sobem de leve */
+.js .revela.visivel { animation: surgir 0.6s ease both; }
+@keyframes surgir {
+  from { opacity: 0.2; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
 }
-.js .revela.visivel { opacity: 1; translate: 0 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
     transition: none !important;
   }
-  .js .revela { opacity: 1; translate: none; }
   .estrada__onibus { left: 8%; }
 }
 

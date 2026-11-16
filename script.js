@@ -56,8 +56,13 @@ document.querySelectorAll("[data-compartilhar]").forEach((btn) => {
       url: location.href,
     };
     if (navigator.share) {
-      try { await navigator.share(dados); } catch { /* cancelado */ }
-      return;
+      try {
+        await navigator.share(dados);
+        return;
+      } catch (erro) {
+        if (erro && erro.name === "AbortError") return; // a pessoa cancelou
+        // compartilhamento bloqueado: cai para copiar o link
+      }
     }
     const ok = await copiar(location.href);
     avisar(ok ? "Link copiado!" : "Copie o link na barra do navegador.");
