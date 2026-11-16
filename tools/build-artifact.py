@@ -26,7 +26,7 @@ body = re.search(r"<body>(.*?)</body>", html, re.S).group(1)
 fontes_google = re.search(r'<link href="https://fonts\.googleapis\.com[^>]+>', head).group(0)
 descricao = re.search(r'<meta name="description"[^>]+>', head).group(0)
 
-body = re.sub(r'\s*<script src="script\.js" defer></script>', "", body)
+body = re.sub(r'\s*<script src="script\.js"( defer)?></script>', "", body)
 
 pagina = f"""<title>Pé na Estrada</title>
 {descricao}
@@ -43,7 +43,7 @@ pagina = f"""<title>Pé na Estrada</title>
 """
 (saida / "index.html").write_text(pagina, encoding="utf-8")
 
-usados = sorted(set(re.findall(r'(assets/marca/[^"\']+\.(?:svg|webp))', body)))
+usados = sorted(set(re.findall(r'(assets/marca/[^"\')]+\.(?:svg|webp))', body + css)))
 for rel in usados:
     destino = saida / rel
     destino.parent.mkdir(parents=True, exist_ok=True)

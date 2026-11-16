@@ -2,475 +2,498 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pé na Estrada · Viagem Missionária Ponta Grossa 2027</title>
   <meta name="description" content="Pé na Estrada: viagem missionária da Juventude Cross, da Igreja Batista do Bacacheri, a Ponta Grossa, PR, em 2027. Saiba como ir e como apoiar.">
   <meta property="og:title" content="Pé na Estrada · Ponta Grossa 2027">
   <meta property="og:description" content="Viagem missionária da Juventude Cross. Vem com a gente ou apoie de onde estiver.">
-  <meta property="og:image" content="assets/marca/pe-na-estrada-selo-completo-original.svg">
-  <meta name="theme-color" content="#1c3c25">
+  <meta name="theme-color" content="#e9e4d2">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,700..900,100&family=Jost:wght@400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <a class="pular" href="#ideia">Pular para o conteúdo</a>
 
   <!--
-    Marcadores amarelos (class="ph") = informação que ainda falta.
-    Procure por class="ph" e troque pelo texto real.
+    Conteúdo pendente aparece como <span class="ph">[...]</span>.
+    Espaços de foto: <div class="foto" data-foto="..."> (ver assets/fotos/LEIA-ME.md).
   -->
 
-  <header class="topo">
-    <div class="wrap topo__in">
-      <a class="marca" href="#">
-        <img src="assets/marca/pe-na-estrada-lettering-creme.svg" alt="Pé na Estrada, início" width="70" height="60">
-      </a>
-      <nav aria-label="Seções">
-        <ul class="nav">
-          <li><a href="#viagem">A viagem</a></li>
-          <li><a href="#outras-vms">Outras VMs</a></li>
-          <li><a href="#roteiro">Roteiro</a></li>
-          <li><a href="#apoiar">Apoiar</a></li>
-          <li><a href="#cross-run">Cross Run</a></li>
-          <li><a href="#duvidas">Dúvidas</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn--sm" href="#como-ir">Quero ir</a>
-    </div>
+  <header class="nav" data-tema="claro">
+    <nav class="nav__lado" aria-label="Seções">
+      <a href="#ideia">A viagem</a>
+      <a href="#destino">Destino</a>
+      <a href="#roteiro">Roteiro</a>
+    </nav>
+    <a class="nav__marca" href="#topo">© Pé na Estrada</a>
+    <nav class="nav__lado nav__lado--dir" aria-label="Mais seções">
+      <a href="#outras-vms">Outras VMs</a>
+      <a href="#cross-run">Cross Run</a>
+      <a class="nav__pill" href="#como-ir">Quero ir</a>
+    </nav>
+    <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu-movel">Menu</button>
   </header>
 
-  <main id="conteudo">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="wrap hero__grade">
-        <div class="hero__texto">
-          <p class="rotulo">Juventude Cross <span aria-hidden="true">✦</span> Igreja Batista do Bacacheri</p>
-          <h1 class="hero__titulo" id="hero-titulo">
-            <img src="assets/marca/pe-na-estrada-lettering-creme.svg" alt="Pé na Estrada" width="692" height="594">
-          </h1>
-          <p class="hero__sub">Viagem missionária a <strong>Ponta Grossa</strong> <span class="hero__ano">2027</span></p>
-          <p class="hero__lead">
-            A Juventude Cross vai sair de Curitiba e subir a serra rumo aos Campos Gerais, pra servir
-            a cidade e levar fé e esperança de um jeito que dá pra ver.
-          </p>
-          <p class="hero__data"><span class="ph">[DATA DE IDA] – [DATA DE VOLTA]</span></p>
-          <div class="acoes">
-            <a class="btn" href="#como-ir">Quero ir</a>
-            <a class="btn btn--linha" href="#apoiar">Quero apoiar</a>
+  <div class="menu-movel" id="menu-movel" hidden>
+    <ol>
+      <li><a href="#ideia"><span>02</span>A viagem</a></li>
+      <li><a href="#destino"><span>03</span>Destino</a></li>
+      <li><a href="#pratica"><span>04</span>Na prática</a></li>
+      <li><a href="#roteiro"><span>06</span>Roteiro</a></li>
+      <li><a href="#outras-vms"><span>07</span>Outras VMs</a></li>
+      <li><a href="#como-ir"><span>08</span>Como ir</a></li>
+      <li><a href="#cross-run"><span>09</span>Cross Run</a></li>
+      <li><a href="#apoie"><span>10</span>Apoie</a></li>
+      <li><a href="#duvidas"><span>11</span>Dúvidas</a></li>
+    </ol>
+  </div>
+
+  <main>
+    <!-- 01 · TOPO ======================================================= -->
+    <section class="painel painel--creme hero" id="topo" data-tema="claro" aria-labelledby="hero-t">
+      <div class="hero__rotulos mono">
+        <span>01 · Viagem missionária</span>
+        <span>Juventude Cross</span>
+        <span>Ponta Grossa · 2027</span>
+      </div>
+
+      <div class="hero__centro">
+        <h1 class="sr-only" id="hero-t">Pé na Estrada: viagem missionária da Juventude Cross a Ponta Grossa, 2027</h1>
+        <div class="selo" aria-hidden="true">
+          <img class="selo__anel" src="assets/marca/pe-na-estrada-anel-do-selo.svg" alt="" width="300" height="300">
+          <img class="selo__logo" src="assets/marca/pe-na-estrada-logo-original.svg" alt="" width="692" height="594">
+        </div>
+        <p class="hero__vers">
+          E como pregarão, se não forem enviados? Como está escrito: “Como são belos os pés dos que anunciam boas-novas!”
+        </p>
+        <p class="mono hero__ref">Romanos 10:15</p>
+        <div class="hero__acoes">
+          <a class="botao botao--verde" href="#como-ir" data-cursor="Bora">Quero ir</a>
+          <a class="botao botao--linha" href="#apoie">Quero apoiar</a>
+        </div>
+      </div>
+
+      <div class="rolo" aria-label="Fotos de viagens missionárias anteriores">
+        <div class="rolo__linha">
+          <div class="rolo__trilho">
+            <div class="foto foto--r" data-foto="hero-1"><span class="foto__rot mono">VM <span class="ph">[ano]</span> · Rio Negro</span></div>
+            <div class="foto foto--p" data-foto="hero-2"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--r" data-foto="hero-3"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--q" data-foto="hero-4"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--p" data-foto="hero-5"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--r" data-foto="hero-6"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
           </div>
         </div>
-
-        <div class="hero__arte">
-          <figure class="polaroid hero__foto hero__foto--1">
-            <div class="foto-slot" data-foto="hero-1"><span class="ph">[FOTO VM 1]</span></div>
-            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
-          </figure>
-          <figure class="polaroid hero__foto hero__foto--2">
-            <div class="foto-slot" data-foto="hero-2"><span class="ph">[FOTO VM 2]</span></div>
-            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
-          </figure>
-          <figure class="polaroid hero__foto hero__foto--3">
-            <div class="foto-slot" data-foto="hero-3"><span class="ph">[FOTO VM 3]</span></div>
-            <figcaption class="nota"><span class="ph">[VM ANO]</span></figcaption>
-          </figure>
-          <div class="selo" aria-hidden="true">
-            <img class="selo__anel" src="assets/marca/pe-na-estrada-anel-do-selo.svg" alt="">
-            <img class="selo__logo" src="assets/marca/pe-na-estrada-logo-original.svg" alt="">
+        <div class="rolo__linha rolo__linha--volta">
+          <div class="rolo__trilho">
+            <div class="foto foto--p" data-foto="hero-7"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--r" data-foto="hero-8"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--q" data-foto="hero-9"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--p" data-foto="hero-10"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--r" data-foto="hero-11"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
+            <div class="foto foto--p" data-foto="hero-12"><span class="foto__rot mono">VM <span class="ph">[ano]</span></span></div>
           </div>
-          <img class="hero__bandeira" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="" aria-hidden="true">
-          <img class="hero__saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="" aria-hidden="true">
+        </div>
+      </div>
+
+      <div class="estrada" aria-hidden="true">
+        <div class="estrada__frota">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
         </div>
       </div>
     </section>
 
-    <!-- LETREIRO -->
-    <div class="letreiro" aria-hidden="true">
-      <div class="letreiro__trilho">
-        <span>Ir</span><i>✦</i><span>Servir</span><i>✦</i><span>Anunciar</span><i>✦</i><span>Voltar diferente</span><i>✦</i>
-        <span>Ir</span><i>✦</i><span>Servir</span><i>✦</i><span>Anunciar</span><i>✦</i><span>Voltar diferente</span><i>✦</i>
-      </div>
-    </div>
-
-    <!-- A VIAGEM -->
-    <section class="viagem secao" id="viagem" aria-labelledby="viagem-t">
-      <div class="wrap">
-        <div class="viagem__painel revela">
-          <figure class="foto">
-            <div class="foto-slot" data-foto="viagem"><span class="ph">[FOTO: juventude reunida]</span></div>
-            <figcaption class="nota">Ponta Grossa, PR</figcaption>
-          </figure>
-          <div class="viagem__texto">
-            <h2 class="display display--md" id="viagem-t">Sair. Servir. Anunciar. Repetir.</h2>
-            <p>
-              O Pé na Estrada é a viagem missionária da Juventude Cross. Por
-              <span class="ph">[Nº DE DIAS]</span> dias, jovens da Igreja Batista do Bacacheri deixam a rotina
-              em Curitiba e vão até Ponta Grossa pra servir a cidade junto com
-              <span class="ph">[IGREJA OU PARCEIRO LOCAL]</span>.
-            </p>
-            <p>
-              O nome vem do versículo-base da viagem, Romanos 10:15: os pés de quem é enviado
-              viram pé na estrada, o jeito comum de dizer que alguém partiu.
-            </p>
-            <p>
-              Não é passeio e não é retiro. É pé no chão, mão na massa e o evangelho
-              dito com palavras e com atitudes.
-            </p>
-          </div>
+    <!-- 02 · A IDEIA ===================================================== -->
+    <section class="painel painel--verde ideia" id="ideia" data-tema="escuro" aria-labelledby="ideia-t">
+      <div class="wrap ideia__grade">
+        <div>
+          <p class="mono rotulo">02 · A ideia</p>
+          <h2 class="titulo titulo--xl ideia__titulo" id="ideia-t">
+            <span class="linha">Pé na</span>
+            <span class="linha">Estrada</span>
+          </h2>
         </div>
-      </div>
-    </section>
-
-    <!-- OUTRAS VMs -->
-    <section class="mural secao" id="outras-vms" aria-labelledby="mural-t">
-      <div class="wrap">
-        <div class="cabeca mural__cabeca">
-          <p class="script cabeca__script" aria-hidden="true">outras VMs</p>
-          <h2 class="display display--lg" id="mural-t">A estrada até aqui</h2>
-          <p class="mural__lead">A Juventude Cross já pôs o pé na estrada antes. <span class="ph">[Desde quando a juventude faz viagens missionárias e por onde já passou]</span></p>
-        </div>
-        <div class="mural__grade">
-          <figure class="polaroid mural__item mural__item--grande revela">
-            <div class="foto-slot" data-foto="mural-1"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · Rio Negro, PR</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item  revela">
-            <div class="foto-slot" data-foto="mural-2"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item mural__item--alto revela">
-            <div class="foto-slot" data-foto="mural-3"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item  revela">
-            <div class="foto-slot" data-foto="mural-4"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item mural__item--largo revela">
-            <div class="foto-slot" data-foto="mural-5"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item  revela">
-            <div class="foto-slot" data-foto="mural-6"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-          <figure class="polaroid mural__item  revela">
-            <div class="foto-slot" data-foto="mural-7"><span class="ph">[FOTO]</span></div>
-            <figcaption class="mural__legenda"><span class="ph">VM [ANO] · [CIDADE]</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- DESTINO -->
-    <section class="destino secao" aria-labelledby="destino-t">
-      <div class="wrap destino__grade">
-        <div class="destino__cartaz revela">
-          <p class="rotulo rotulo--largo">Destino <span aria-hidden="true">·</span> Campos Gerais</p>
-          <h2 class="destino__nome" id="destino-t">Ponta<br>Grossa</h2>
-          <p class="destino__estado script">Paraná</p>
-        </div>
-        <figure class="destino__emblema revela">
-          <img class="destino__pedra" src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="Emblema da viagem: a Taça, formação de arenito de Vila Velha, com o sol vermelho ao fundo" width="159" height="173">
-          <figcaption class="rotulo">A Taça <span aria-hidden="true">·</span> Parque Estadual de Vila Velha</figcaption>
-        </figure>
-
-        <div class="estrada" aria-hidden="true">
-          <img class="estrada__onibus" src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
-        </div>
-
-        <dl class="carimbos">
-          <div class="carimbo revela">
-            <dt>Saída</dt>
-            <dd>Curitiba</dd>
-            <dd class="carimbo__sub">Bacacheri</dd>
-          </div>
-          <div class="carimbo revela">
-            <dt>Distância</dt>
-            <dd>≈ 115 km</dd>
-            <dd class="carimbo__sub">de ônibus</dd>
-          </div>
-          <div class="carimbo revela">
-            <dt>Ida</dt>
-            <dd><span class="ph">[DATA]</span></dd>
-            <dd class="carimbo__sub"><span class="ph">[HORÁRIO]</span></dd>
-          </div>
-          <div class="carimbo revela">
-            <dt>Volta</dt>
-            <dd><span class="ph">[DATA]</span></dd>
-            <dd class="carimbo__sub"><span class="ph">[HORÁRIO]</span></dd>
-          </div>
+        <dl class="ficha">
+          <div><dt class="mono">Quem vai</dt><dd>Juventude Cross · Igreja Batista do Bacacheri</dd></div>
+          <div><dt class="mono">Destino</dt><dd>Ponta Grossa, Campos Gerais (PR)</dd></div>
+          <div><dt class="mono">Quando</dt><dd>2027 · <span class="ph">[data de ida – data de volta]</span></dd></div>
+          <div><dt class="mono">Duração</dt><dd><span class="ph">[nº de dias]</span></dd></div>
+          <div><dt class="mono">Equipes</dt><dd>Geral, Staff e Saúde</dd></div>
         </dl>
       </div>
-    </section>
-
-    <!-- O QUE VAMOS FAZER -->
-    <section class="fazer secao" aria-labelledby="fazer-t">
       <div class="wrap">
-        <div class="cabeca">
-          <p class="script cabeca__script" aria-hidden="true">lá em Ponta Grossa</p>
-          <h2 class="display display--lg" id="fazer-t">O que vamos fazer</h2>
-        </div>
-        <ul class="adesivos">
-          <li class="adesivo adesivo--verde revela">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 11c6-3 12-3 18 1v28c-6-4-12-4-18-1z M42 11c-6-3-12-3-18 1v28c6-4 12-4 18-1z"/></svg>
-            <h3>Anunciar</h3>
-            <p><span class="ph">[O que exatamente: ex. evangelismo, culto na praça]</span></p>
-          </li>
-          <li class="adesivo adesivo--vermelho revela">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 24 L24 9 L41 24 V41 H7Z M19 41 V30 H29 V41"/></svg>
-            <h3>Servir</h3>
-            <p><span class="ph">[Ação social: ex. reforma, mutirão, doações]</span></p>
-          </li>
-          <li class="adesivo adesivo--creme revela">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40 C10 30 6 22 10 15 C14 9 21 10 24 16 C27 10 34 9 38 15 C42 22 38 30 24 40Z"/></svg>
-            <h3>Cuidar</h3>
-            <p><span class="ph">[Com quem: ex. crianças, famílias, idosos]</span></p>
-          </li>
-          <li class="adesivo adesivo--verde revela">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7 C31 15 36 20 34 29 C33 35 28 38 24 38 C20 38 15 35 14 29 C13 23 18 19 20 13 C22 19 24 21 26 21 C27 17 26 12 24 7Z M9 43 L39 37 M9 37 L39 43"/></svg>
-            <h3>Celebrar</h3>
-            <p><span class="ph">[Cultos, louvor, noites de comunhão]</span></p>
-          </li>
-        </ul>
+        <p class="manifesto" data-palavras>
+          O nome vem do versículo-base da viagem. Os pés de quem é enviado viram pé na estrada,
+          o jeito comum de dizer que alguém partiu. Não é passeio e não é retiro. É pé no chão,
+          mão na massa e o evangelho dito com palavras e com atitudes.
+        </p>
       </div>
     </section>
 
-    <!-- ROTEIRO -->
-    <section class="roteiro secao" id="roteiro" aria-labelledby="roteiro-t">
-      <div class="wrap">
-        <div class="cabeca cabeca--claro">
-          <p class="script cabeca__script" aria-hidden="true">dia a dia</p>
-          <h2 class="display display--lg" id="roteiro-t">Roteiro</h2>
+    <!-- 03 · DESTINO ===================================================== -->
+    <section class="painel painel--creme destino" id="destino" data-tema="claro" aria-labelledby="destino-t">
+      <div class="wrap destino__grade">
+        <figure class="destino__emblema" data-inclina>
+          <img src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="Emblema da viagem: a Taça, formação de arenito do Parque Estadual de Vila Velha, com o sol vermelho atrás" width="159" height="173">
+        </figure>
+        <div class="destino__texto">
+          <p class="mono rotulo">03 · Destino</p>
+          <h2 class="titulo titulo--lg" id="destino-t">Ponta Grossa</h2>
+          <p class="corpo">
+            A gente sai de Curitiba e sobe para os Campos Gerais do Paraná. A paisagem do destino
+            entra na marca: o emblema recorta a Taça, formação de arenito do Parque Estadual de
+            Vila Velha, com o sol vermelho atrás.
+          </p>
+          <p class="corpo">
+            Mata, montanhas e arvorismo compõem o tema de aventura da viagem.
+          </p>
         </div>
-        <ol class="bilhetes">
-          <li class="bilhete revela">
-            <p class="bilhete__dia">Dia 01</p>
+      </div>
+
+      <div class="wrap">
+        <div class="rota" aria-label="Trajeto de Curitiba a Ponta Grossa, cerca de 115 km">
+          <div class="rota__topo mono">
+            <span>Curitiba · Bacacheri</span>
+            <span class="rota__km"><b data-km>0</b> / 115 km</span>
+            <span>Ponta Grossa</span>
+          </div>
+          <svg class="rota__mapa" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+            <path class="rota__base" d="M30 170 C 200 170, 260 60, 420 80 S 640 190, 800 150 S 1030 40, 1170 70"/>
+            <path class="rota__traco" d="M30 170 C 200 170, 260 60, 420 80 S 640 190, 800 150 S 1030 40, 1170 70"/>
+            <circle class="rota__pino" cx="30" cy="170" r="9"/>
+            <circle class="rota__pino rota__pino--fim" cx="1170" cy="70" r="9"/>
+          </svg>
+          <img class="rota__onibus" src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81" aria-hidden="true">
+          <p class="rota__nota mono">≈ 115 km de ônibus · saída do Bacacheri</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · NA PRÁTICA ================================================== -->
+    <section class="painel painel--verde pratica" id="pratica" data-tema="escuro" aria-labelledby="pratica-t">
+      <div class="wrap pratica__grade">
+        <div class="pratica__texto">
+          <p class="mono rotulo">04 · Na prática</p>
+          <h2 class="titulo titulo--lg" id="pratica-t">O que vamos fazer</h2>
+          <ol class="frentes">
+            <li>
+              <span class="mono">04.1</span>
+              <h3>Anunciar</h3>
+              <p><span class="ph">[ex. evangelismo, culto na praça]</span></p>
+            </li>
+            <li>
+              <span class="mono">04.2</span>
+              <h3>Servir</h3>
+              <p><span class="ph">[ex. ação social, mutirão, doações]</span></p>
+            </li>
+            <li>
+              <span class="mono">04.3</span>
+              <h3>Cuidar</h3>
+              <p><span class="ph">[ex. equipe de saúde, crianças, famílias]</span></p>
+            </li>
+            <li>
+              <span class="mono">04.4</span>
+              <h3>Celebrar</h3>
+              <p><span class="ph">[ex. cultos, louvor, noites de comunhão]</span></p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="mural-adesivos" aria-hidden="true" data-cursor="Arraste">
+          <p class="mono mural-adesivos__dica">Arraste os adesivos</p>
+          <img class="adesivo a-selo" src="assets/marca/pe-na-estrada-selo-completo-original.svg" alt="" draggable="false">
+          <img class="adesivo a-bandeira" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="" draggable="false">
+          <img class="adesivo a-pedra" src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="" draggable="false">
+          <img class="adesivo a-etiqueta" src="assets/marca/pe-na-estrada-etiqueta.webp" alt="" draggable="false">
+          <img class="adesivo a-saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="" draggable="false">
+          <img class="adesivo a-saleiro2" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="" draggable="false">
+          <img class="adesivo a-cross" src="assets/marca/pe-na-estrada-cross.webp" alt="" draggable="false">
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · EQUIPES ===================================================== -->
+    <section class="painel painel--creme equipes" id="equipes" data-tema="claro" aria-labelledby="equipes-t">
+      <div class="wrap equipes__cabeca">
+        <p class="mono rotulo">05 · Equipes</p>
+        <h2 class="titulo titulo--lg" id="equipes-t">Uma camisa para cada equipe</h2>
+      </div>
+      <div class="equipes__cols">
+        <article class="equipe equipe--verde">
+          <div class="equipe__topo mono"><span>05.1 · Equipe</span><span>Verde</span></div>
+          <p class="equipe__txt">Nas costas, o emblema da Taça, a bandeirinha 27 e Romanos 10:15.</p>
+          <h3 class="equipe__nome">Geral</h3>
+        </article>
+        <article class="equipe equipe--carvao">
+          <div class="equipe__topo mono"><span>05.2 · Equipe</span><span>Preta</span></div>
+          <p class="equipe__txt">O mesmo emblema nas costas, com o versículo completo.</p>
+          <h3 class="equipe__nome">Staff</h3>
+        </article>
+        <article class="equipe equipe--vermelho">
+          <div class="equipe__topo mono"><span>05.3 · Equipe</span><span>Vermelha</span></div>
+          <p class="equipe__txt">O saleiro, de estetoscópio, pergunta: já bebeu água? Passou protetor?</p>
+          <img class="equipe__saleiro" src="assets/marca/pe-na-estrada-saleiro-silhueta-creme.svg" alt="" aria-hidden="true">
+          <h3 class="equipe__nome">Saúde</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06 · ROTEIRO ===================================================== -->
+    <section class="painel painel--creme roteiro" id="roteiro" data-tema="claro" aria-labelledby="roteiro-t">
+      <div class="wrap">
+        <div class="roteiro__cabeca">
+          <p class="mono rotulo">06 · Roteiro</p>
+          <h2 class="titulo titulo--lg" id="roteiro-t">Cartão de embarque</h2>
+        </div>
+
+        <div class="passe" data-passe>
+          <div class="passe__corpo">
+            <div class="passe__linha mono">
+              <span>Viagem missionária · VM 2027</span>
+              <span>Juventude Cross</span>
+            </div>
+            <div class="passe__trecho">
+              <div>
+                <p class="mono">De</p>
+                <p class="passe__cidade">Curitiba</p>
+                <p class="mono passe__sub">Bacacheri</p>
+              </div>
+              <img class="passe__onibus" src="assets/marca/pe-na-estrada-onibus.svg" alt="" aria-hidden="true">
+              <div class="passe__dir">
+                <p class="mono">Para</p>
+                <p class="passe__cidade">Ponta Grossa</p>
+                <p class="mono passe__sub">Campos Gerais</p>
+              </div>
+            </div>
+            <dl class="passe__campos">
+              <div><dt class="mono">Passageiro</dt><dd>Você</dd></div>
+              <div><dt class="mono">Ida</dt><dd><span class="ph">[data]</span></dd></div>
+              <div><dt class="mono">Embarque</dt><dd><span class="ph">[horário]</span></dd></div>
+              <div><dt class="mono">Volta</dt><dd><span class="ph">[data]</span></dd></div>
+            </dl>
+          </div>
+          <div class="passe__canhoto">
+            <img src="assets/marca/pe-na-estrada-selo-completo-original.svg" alt="" aria-hidden="true">
+            <p class="mono">Assento livre</p>
+            <div class="passe__barras" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <ol class="dias">
+          <li class="dia">
+            <p class="mono">Dia 01</p>
             <h3>Pé na estrada</h3>
-            <p>Saída do Bacacheri, <span class="ph">[HORÁRIO E LOCAL DE ENCONTRO]</span>. Chegada em Ponta Grossa e instalação.</p>
+            <p>Saída do Bacacheri, <span class="ph">[horário e local de encontro]</span>. Chegada e instalação em Ponta Grossa.</p>
           </li>
-          <li class="bilhete revela">
-            <p class="bilhete__dia">Dia 02</p>
-            <h3><span class="ph">[TÍTULO]</span></h3>
-            <p><span class="ph">[Programação do dia]</span></p>
+          <li class="dia">
+            <p class="mono">Dia 02</p>
+            <h3><span class="ph">[título]</span></h3>
+            <p><span class="ph">[programação do dia]</span></p>
           </li>
-          <li class="bilhete revela">
-            <p class="bilhete__dia">Dia 03</p>
-            <h3><span class="ph">[TÍTULO]</span></h3>
-            <p><span class="ph">[Programação do dia]</span></p>
+          <li class="dia">
+            <p class="mono">Dia 03</p>
+            <h3><span class="ph">[título]</span></h3>
+            <p><span class="ph">[programação do dia]</span></p>
           </li>
-          <li class="bilhete revela">
-            <p class="bilhete__dia">Volta</p>
+          <li class="dia">
+            <p class="mono">Volta</p>
             <h3>De volta pra casa</h3>
-            <p>Encerramento em Ponta Grossa e retorno a Curitiba. Chegada prevista <span class="ph">[HORÁRIO]</span>.</p>
+            <p>Encerramento e retorno a Curitiba. Chegada prevista <span class="ph">[horário]</span>.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- FAIXA DE FOTO -->
-    <section class="faixa" aria-label="Foto de uma viagem anterior">
-      <div class="foto-slot" data-foto="faixa"><span class="ph">[FOTO GRANDE: grupo reunido numa VM]</span></div>
-      <p class="faixa__texto" aria-hidden="true"><span class="script">vem com a</span> <span class="display">gente</span></p>
+    <!-- 07 · OUTRAS VMs ================================================== -->
+    <section class="painel painel--verde galeria" id="outras-vms" data-tema="escuro" aria-labelledby="galeria-t">
+      <div class="galeria__pista">
+        <div class="galeria__intro">
+          <p class="mono rotulo">07 · Outras VMs</p>
+          <h2 class="titulo titulo--lg" id="galeria-t">A estrada até aqui</h2>
+          <p class="corpo">A Juventude Cross já pôs o pé na estrada antes. <span class="ph">[desde quando e por onde já passou]</span></p>
+          <p class="mono galeria__dica">Role para ver →</p>
+        </div>
+        <figure class="g-item g-item--alto"><div class="foto" data-foto="vm-1"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · Rio Negro, PR</figcaption></figure>
+        <figure class="g-item"><div class="foto" data-foto="vm-2"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · <span class="ph">[cidade]</span></figcaption></figure>
+        <figure class="g-item g-item--largo"><div class="foto" data-foto="vm-3"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · <span class="ph">[cidade]</span></figcaption></figure>
+        <figure class="g-item g-item--alto"><div class="foto" data-foto="vm-4"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · <span class="ph">[cidade]</span></figcaption></figure>
+        <figure class="g-item"><div class="foto" data-foto="vm-5"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · <span class="ph">[cidade]</span></figcaption></figure>
+        <figure class="g-item g-item--largo"><div class="foto" data-foto="vm-6"></div><figcaption class="mono">VM <span class="ph">[ano]</span> · <span class="ph">[cidade]</span></figcaption></figure>
+        <div class="galeria__fim">
+          <p class="script">e agora,</p>
+          <p class="titulo titulo--md">Ponta Grossa.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- COMO IR -->
-    <section class="ir secao" id="como-ir" aria-labelledby="ir-t">
-      <div class="wrap">
-        <div class="cabeca cabeca--claro">
-          <p class="script cabeca__script" aria-hidden="true">bora?</p>
-          <h2 class="display display--lg" id="ir-t">Como ir</h2>
-        </div>
-        <div class="ir__grade">
-          <ol class="passos">
-            <li class="passo revela">
-              <span class="passo__n" aria-hidden="true">1</span>
-              <h3>Faça sua inscrição</h3>
-              <p>Preencha o formulário com seus dados.</p>
-            </li>
-            <li class="passo revela">
-              <span class="passo__n" aria-hidden="true">2</span>
-              <h3>Garanta sua vaga</h3>
-              <p><span class="ph">[Forma de pagamento e parcelamento]</span></p>
-            </li>
-            <li class="passo revela">
-              <span class="passo__n" aria-hidden="true">3</span>
-              <h3>Prepare-se com a gente</h3>
-              <p><span class="ph">[Encontros de preparação, datas]</span></p>
-            </li>
-          </ol>
-
-          <div class="ingresso revela">
-            <div class="ingresso__topo">
-              <p class="rotulo">Investimento</p>
-              <p class="ingresso__valor"><span class="ph">R$ [VALOR]</span></p>
-              <p class="ingresso__inclui">Inclui <span class="ph">[transporte, hospedagem, alimentação…]</span></p>
-            </div>
-            <dl class="ingresso__dados">
-              <div><dt>Quem pode ir</dt><dd><span class="ph">[faixa etária / requisitos]</span></dd></div>
-              <div><dt>Vagas</dt><dd><span class="ph">[Nº]</span></dd></div>
-              <div><dt>Inscrições até</dt><dd><span class="ph">[DATA]</span></dd></div>
-            </dl>
+    <!-- 08 · COMO IR ===================================================== -->
+    <section class="painel painel--vermelho ir" id="como-ir" data-tema="escuro" aria-labelledby="ir-t">
+      <div class="wrap ir__grade">
+        <div class="ir__chamada">
+          <p class="mono rotulo">08 · Como ir</p>
+          <p class="script ir__script" aria-hidden="true">bora?</p>
+          <h2 class="titulo titulo--lg" id="ir-t">Garanta seu lugar no ônibus</h2>
+          <a class="girador" href="#" data-cursor="Inscrição">
             <!-- TROCAR: href pelo link do formulário de inscrição -->
-            <a class="btn btn--verde ingresso__btn" href="#">Fazer minha inscrição</a>
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="girador-c" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs>
+              <text><textPath href="#girador-c">QUERO IR · FAZER INSCRIÇÃO · QUERO IR · FAZER INSCRIÇÃO · </textPath></text>
+            </svg>
+            <span class="girador__seta" aria-hidden="true">↗</span>
+            <span class="sr-only">Fazer minha inscrição</span>
+          </a>
+        </div>
+
+        <div class="ficha-ir">
+          <div class="ficha-ir__preco">
+            <p class="mono">Investimento</p>
+            <p class="ficha-ir__valor"><span class="ph">R$ [valor]</span></p>
+            <p>Inclui <span class="ph">[transporte, hospedagem, alimentação…]</span></p>
           </div>
+          <ol class="passos">
+            <li><span class="mono">01</span><div><h3>Faça sua inscrição</h3><p>Preencha o formulário com seus dados.</p></div></li>
+            <li><span class="mono">02</span><div><h3>Garanta sua vaga</h3><p><span class="ph">[forma de pagamento e parcelamento]</span></p></div></li>
+            <li><span class="mono">03</span><div><h3>Prepare-se com a gente</h3><p><span class="ph">[encontros de preparação, datas]</span></p></div></li>
+          </ol>
+          <dl class="ficha ficha--clara">
+            <div><dt class="mono">Quem pode ir</dt><dd><span class="ph">[faixa etária / requisitos]</span></dd></div>
+            <div><dt class="mono">Vagas</dt><dd><span class="ph">[nº]</span></dd></div>
+            <div><dt class="mono">Inscrições até</dt><dd><span class="ph">[data]</span></dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- VERSÍCULO -->
-    <section class="versiculo secao" aria-labelledby="vers-t">
-      <div class="wrap">
-        <figure class="versiculo__fig revela">
-          <p class="rotulo rotulo--largo versiculo__rotulo">Versículo-base da viagem</p>
-          <blockquote>
-            <p class="versiculo__intro">E como pregarão, se não forem enviados? Como está escrito:</p>
-            <p id="vers-t">Como são belos os pés dos que anunciam boas-novas!</p>
-          </blockquote>
-          <figcaption class="rotulo rotulo--largo">Romanos 10:15</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- APOIAR -->
-    <section class="apoiar secao" id="apoiar" aria-labelledby="apoiar-t">
-      <div class="wrap">
-        <div class="cabeca cabeca--claro">
-          <p class="script cabeca__script" aria-hidden="true">não vai?</p>
-          <h2 class="display display--lg" id="apoiar-t">Vá junto de outro jeito</h2>
-        </div>
-        <div class="patches">
-          <article class="patch revela">
-            <p class="patch__num">01</p>
-            <h3>Ore</h3>
-            <p>Pela equipe, por Ponta Grossa e por cada pessoa que a gente vai encontrar.</p>
-            <p><span class="ph">[Pedidos de oração específicos]</span></p>
-          </article>
-          <article class="patch patch--destaque revela">
-            <p class="patch__num">02</p>
-            <h3>Doe</h3>
-            <p>Sua oferta ajuda a cobrir <span class="ph">[transporte, materiais, bolsas para jovens…]</span>.</p>
-            <div class="pix">
-              <p class="rotulo">Chave PIX</p>
-              <p class="pix__chave" id="pix-chave"><span class="ph">[CHAVE PIX]</span></p>
-              <button class="btn btn--sm btn--creme" type="button" data-copiar="pix-chave">Copiar chave</button>
-            </div>
-          </article>
-          <article class="patch revela">
-            <p class="patch__num">03</p>
-            <h3>Compartilhe</h3>
-            <p>Manda esta página pra quem pode ir ou apoiar. Quanto mais gente sabendo, mais longe a gente chega.</p>
-            <button class="btn btn--sm btn--linha-verde" type="button" data-compartilhar>Compartilhar página</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CROSS RUN -->
-    <section class="corrida secao" id="cross-run" aria-labelledby="corrida-t">
+    <!-- 09 · CROSS RUN =================================================== -->
+    <section class="painel painel--carvao corrida" id="cross-run" data-tema="escuro" aria-labelledby="corrida-t">
       <div class="wrap corrida__grade">
-        <div class="corrida__chamada">
-          <p class="rotulo rotulo--largo">Corrida beneficente</p>
-          <h2 class="corrida__titulo" id="corrida-t">
-            <span class="corrida__cross">Cross</span>
+        <div class="corrida__lado">
+          <p class="mono rotulo">09 · Corrida beneficente</p>
+          <h2 class="corrida__logo" id="corrida-t">
+            <span class="corrida__cross">cross</span>
             <span class="corrida__run script">Run</span>
           </h2>
-          <p class="corrida__lead">Uma corrida aberta com a juventude. Largada uma semana antes da viagem.</p>
-          <ul class="corrida__info">
-            <li><strong>Quem corre:</strong> divulgada para o UP e o GO. Pais e familiares também podem correr e doar.</li>
-            <li><strong>Pra onde vai o dinheiro:</strong> financia ações na viagem ou é doado a casas de apoio de Ponta Grossa.</li>
-            <li><strong>Data e local:</strong> <span class="ph">[DATA E LOCAL DA LARGADA]</span></li>
-          </ul>
-          <!-- TROCAR: href pelo link de inscrição da corrida -->
-          <a class="btn btn--verde" href="#">Inscrever na Cross Run</a>
+          <div class="abas" role="tablist" aria-label="Sobre a Cross Run">
+            <button role="tab" id="aba-1" aria-controls="painel-aba" aria-selected="true"><span class="abas__barra"><i></i></span><span class="mono"><b>01</b> A corrida</span></button>
+            <button role="tab" id="aba-2" aria-controls="painel-aba" aria-selected="false" tabindex="-1"><span class="abas__barra"><i></i></span><span class="mono"><b>02</b> Quem corre</span></button>
+            <button role="tab" id="aba-3" aria-controls="painel-aba" aria-selected="false" tabindex="-1"><span class="abas__barra"><i></i></span><span class="mono"><b>03</b> Arrecadação</span></button>
+            <button role="tab" id="aba-4" aria-controls="painel-aba" aria-selected="false" tabindex="-1"><span class="abas__barra"><i></i></span><span class="mono"><b>04</b> Percursos</span></button>
+            <button role="tab" id="aba-5" aria-controls="painel-aba" aria-selected="false" tabindex="-1"><span class="abas__barra"><i></i></span><span class="mono"><b>05</b> Inscrição</span></button>
+            <button role="tab" id="aba-6" aria-controls="painel-aba" aria-selected="false" tabindex="-1"><span class="abas__barra"><i></i></span><span class="mono"><b>06</b> Doação</span></button>
+          </div>
         </div>
 
-        <ul class="numeros" aria-label="Percursos, inscrição e doação">
-          <li class="numero revela">
-            <p class="numero__topo">Percurso 01</p>
-            <p class="numero__grande">2 km</p>
-            <p class="numero__pe">Cross Run <span aria-hidden="true">·</span> Pé na Estrada</p>
-          </li>
-          <li class="numero revela">
-            <p class="numero__topo">Percurso 02</p>
-            <p class="numero__grande">5 km</p>
-            <p class="numero__pe">Cross Run <span aria-hidden="true">·</span> Pé na Estrada</p>
-          </li>
-          <li class="numero numero--verde revela">
-            <p class="numero__topo">Inscrição</p>
-            <p class="numero__grande">R$ 20</p>
-            <p class="numero__pe">Inclui pulseira e número de peito</p>
-          </li>
-          <li class="numero numero--verde revela">
-            <p class="numero__topo">Doação</p>
-            <p class="numero__grande numero__grande--texto">Qualquer valor</p>
-            <p class="numero__pe">Acima de R$ 50 vem com um kit da Cross Run</p>
-          </li>
-        </ul>
-        <p class="corrida__nota">Trajetos e kit serão apresentados depois.</p>
+        <div class="corrida__palco" id="painel-aba" role="tabpanel" aria-labelledby="aba-1" aria-live="polite">
+          <p class="mono corrida__num">01 · A corrida</p>
+          <p class="corrida__frase">Uma corrida aberta com a juventude.</p>
+          <p class="mono corrida__sub">Largada uma semana antes da viagem.</p>
+        </div>
+      </div>
+      <div class="wrap corrida__base">
+        <p class="mono">Data, local, trajetos e kit serão apresentados depois. <span class="ph">[data e local]</span></p>
+        <!-- TROCAR: href pelo link de inscrição da corrida -->
+        <a class="botao botao--creme" href="#">Inscrever na Cross Run</a>
       </div>
     </section>
 
-    <!-- DÚVIDAS -->
-    <section class="duvidas secao" id="duvidas" aria-labelledby="duvidas-t">
+    <!-- 10 · APOIE ======================================================= -->
+    <section class="painel painel--creme apoie" id="apoie" data-tema="claro" aria-labelledby="apoie-t">
+      <div class="wrap">
+        <p class="mono rotulo">10 · Apoie</p>
+        <h2 class="titulo titulo--lg" id="apoie-t">Não vai? Vá junto de outro jeito.</h2>
+        <div class="apoios">
+          <article class="apoio">
+            <p class="mono">10.1</p>
+            <h3 class="script">Ore</h3>
+            <p>Pela equipe, por Ponta Grossa e por cada pessoa que a gente vai encontrar.</p>
+            <p><span class="ph">[pedidos de oração específicos]</span></p>
+          </article>
+          <article class="apoio">
+            <p class="mono">10.2</p>
+            <h3 class="script">Doe</h3>
+            <p>Sua oferta ajuda a cobrir <span class="ph">[transporte, materiais, bolsas para jovens…]</span>.</p>
+            <div class="pix">
+              <p class="mono">Chave PIX</p>
+              <p class="pix__chave" id="pix-chave"><span class="ph">[chave pix]</span></p>
+              <button class="botao botao--verde botao--p" type="button" data-copiar="pix-chave">Copiar chave</button>
+            </div>
+          </article>
+          <article class="apoio">
+            <p class="mono">10.3</p>
+            <h3 class="script">Compartilhe</h3>
+            <p>Manda esta página pra quem pode ir ou apoiar. Quanto mais gente sabendo, mais longe a gente chega.</p>
+            <button class="botao botao--linha botao--p" type="button" data-compartilhar>Copiar link da página</button>
+          </article>
+        </div>
+        <div class="trilha-saleiro" aria-hidden="true">
+          <img src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · DÚVIDAS ===================================================== -->
+    <section class="painel painel--verde duvidas" id="duvidas" data-tema="escuro" aria-labelledby="duvidas-t">
       <div class="wrap duvidas__grade">
-        <div class="cabeca">
-          <p class="script cabeca__script" aria-hidden="true">perguntas</p>
-          <h2 class="display display--lg" id="duvidas-t">Dúvidas</h2>
-          <img class="duvidas__saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="" aria-hidden="true">
+        <div>
+          <p class="mono rotulo">11 · Dúvidas</p>
+          <h2 class="titulo titulo--lg" id="duvidas-t">Perguntas</h2>
         </div>
         <div class="faq">
-          <details>
-            <summary>Preciso ser membro da Igreja Batista do Bacacheri?</summary>
-            <p><span class="ph">[Resposta]</span></p>
-          </details>
-          <details>
-            <summary>Menor de idade pode ir?</summary>
-            <p><span class="ph">[Resposta: idade mínima, autorização dos responsáveis]</span></p>
-          </details>
-          <details>
-            <summary>Onde a gente vai ficar?</summary>
-            <p><span class="ph">[Resposta: hospedagem, o que levar para dormir]</span></p>
-          </details>
-          <details>
-            <summary>O que preciso levar?</summary>
-            <p><span class="ph">[Resposta: lista de mala, documentos]</span></p>
-          </details>
-          <details>
-            <summary>Dá pra parcelar?</summary>
-            <p><span class="ph">[Resposta]</span></p>
-          </details>
+          <details><summary>Preciso ser membro da Igreja Batista do Bacacheri?</summary><div class="faq__resp"><p><span class="ph">[resposta]</span></p></div></details>
+          <details><summary>Menor de idade pode ir?</summary><div class="faq__resp"><p><span class="ph">[idade mínima, autorização dos responsáveis]</span></p></div></details>
+          <details><summary>Onde a gente vai ficar?</summary><div class="faq__resp"><p><span class="ph">[hospedagem, o que levar para dormir]</span></p></div></details>
+          <details><summary>O que preciso levar?</summary><div class="faq__resp"><p><span class="ph">[lista de mala, documentos]</span></p></div></details>
+          <details><summary>Dá pra parcelar?</summary><div class="faq__resp"><p><span class="ph">[resposta]</span></p></div></details>
         </div>
       </div>
     </section>
+
+    <!-- 12 · FIM ========================================================= -->
+    <footer class="painel painel--creme fim" data-tema="claro">
+      <div class="wrap fim__centro">
+        <div class="selo selo--p" aria-hidden="true">
+          <img class="selo__anel" src="assets/marca/pe-na-estrada-anel-do-selo.svg" alt="" width="300" height="300">
+          <img class="selo__logo" src="assets/marca/pe-na-estrada-logo-original.svg" alt="" width="692" height="594">
+        </div>
+        <p class="titulo titulo--xl fim__frase">Bora pôr o pé na estrada?</p>
+        <div class="hero__acoes">
+          <a class="botao botao--verde" href="#como-ir">Quero ir</a>
+          <a class="botao botao--linha" href="#apoie">Quero apoiar</a>
+        </div>
+      </div>
+      <div class="estrada estrada--fim" aria-hidden="true">
+        <div class="estrada__frota">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+          <img src="assets/marca/pe-na-estrada-onibus.svg" alt="" width="223" height="81">
+        </div>
+      </div>
+      <div class="fim__base mono">
+        <span class="fim__assina"><img src="assets/marca/pe-na-estrada-cross.webp" alt="Cross" width="152" height="78"> Juventude Cross · Igreja Batista do Bacacheri · Curitiba, PR</span>
+        <span class="fim__contatos"><a href="#"><span class="ph">[@instagram]</span></a> <a href="#"><span class="ph">[whatsapp]</span></a></span>
+        <span>Identidade visual · Lovwski</span>
+      </div>
+    </footer>
   </main>
 
-  <footer class="rodape">
-    <div class="wrap">
-      <img class="rodape__selo" src="assets/marca/pe-na-estrada-selo-completo-original.svg" alt="Selo Pé na Estrada, viagem missionária, Ponta Grossa 2027" width="476" height="476">
-      <p class="rodape__chamada display display--md">Bora pôr o pé na estrada?</p>
-      <div class="acoes acoes--centro">
-        <a class="btn" href="#como-ir">Quero ir</a>
-        <a class="btn btn--linha" href="#apoiar">Quero apoiar</a>
-      </div>
-      <div class="rodape__base">
-        <div class="rodape__assina">
-          <img class="rodape__cross" src="assets/marca/pe-na-estrada-cross.webp" alt="Cross" width="152" height="78">
-          <p class="rotulo">Juventude Cross <span aria-hidden="true">·</span> Igreja Batista do Bacacheri <span aria-hidden="true">·</span> Curitiba, PR</p>
-        </div>
-        <ul class="contatos">
-          <li><a href="#"><span class="ph">[@instagram]</span></a></li>
-          <li><a href="#"><span class="ph">[WhatsApp]</span></a></li>
-          <li><a href="#"><span class="ph">[e-mail]</span></a></li>
-        </ul>
-      </div>
-      <img class="rodape__saleiro" src="assets/marca/pe-na-estrada-saleiro-silhueta-creme.svg" alt="" aria-hidden="true">
-    </div>
-  </footer>
-
+  <div class="cursor" aria-hidden="true"><span></span></div>
   <div class="aviso" role="status" aria-live="polite"></div>
-  <script src="script.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

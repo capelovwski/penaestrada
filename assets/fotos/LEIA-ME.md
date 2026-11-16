@@ -1,16 +1,11 @@
 # Fotos do site
 
-Coloque as fotos aqui com estes nomes (JPG ou WebP, lado maior entre 1600 e 2400 px).
-Cada nome corresponde a um espaço marcado com `data-foto="..."` no `index.html`.
+Coloque as fotos aqui (JPG ou WebP, lado maior entre 1600 e 2400 px) e me diga
+o ano e a cidade de cada VM. Cada espaço no `index.html` tem um `data-foto="..."`.
 
-| Nome            | Onde aparece                                  | Formato        |
-|-----------------|-----------------------------------------------|----------------|
-| `hero-1`        | Colagem do topo, polaroid da esquerda         | retrato 4:5    |
-| `hero-2`        | Colagem do topo, polaroid da direita          | retrato 4:5    |
-| `hero-3`        | Colagem do topo, polaroid de baixo            | retrato 4:5    |
-| `viagem`        | Seção "A viagem"                              | quadrada       |
-| `mural-1`       | "Outras VMs", foto grande (Rio Negro)         | quadrada       |
-| `mural-2` a `7` | "Outras VMs", mural                           | variado        |
-| `faixa`         | Faixa larga antes de "Como ir"                | paisagem 16:9  |
+| Nome                | Onde aparece                                   | Formato          |
+|---------------------|------------------------------------------------|------------------|
+| `hero-1` a `hero-12`| Topo: dois rolos de fotos que passam sem parar | retrato, paisagem e quadrada, alternando |
+| `vm-1` a `vm-6`     | "Outras VMs": galeria horizontal               | retrato alto, retrato e paisagem |
 
-Para cada foto, mande também: ano da VM, cidade e, se quiser, uma legenda curta.
+`hero-1` e `vm-1` estão marcadas como Rio Negro, PR.

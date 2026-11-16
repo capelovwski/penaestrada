@@ -1,68 +1,55 @@
-# Pé na Estrada — Direção visual
+# Pé na Estrada — Direção visual (v2)
 
 Viagem missionária da Juventude Cross (Igreja Batista do Bacacheri) a Ponta Grossa, PR, em 2027.
+Identidade visual: Lovwski (Murilo Capelo). O site segue a linguagem do estudo de caso do projeto.
 
-Retrô anos 70, clima de acampamento e de parques nacionais. A página precisa parecer material
-impresso: cartaz, flâmula, adesivo, bilhete de viagem. Nada de "app" ou SaaS.
+## Princípios
 
-Referências: The Spin Room (blocos chapados, títulos display enormes), Youth Camp / Happy Campers
-(script cursivo sobre display, patches e badges), pôster de parques nacionais (tipografia em uma
-cor só sobre verde-escuro), press kit Roots (adesivos recortados, flâmula).
-
-## Peças da marca (`assets/marca/`)
-
-| Arquivo | Uso na página |
-|---|---|
-| `lettering-creme.svg` | Título do hero (h1) e logo do topo |
-| `lettering-verde.svg` | Reserva, para fundo claro |
-| `logo-original.svg` | Centro do selo do hero (círculo vermelho + lettering) |
-| `anel-do-selo.svg` | Anel do selo do hero, girando devagar atrás da logo |
-| `selo-completo-original.svg` | Rodapé |
-| `logo-completa-texto-invertido.svg` | Reserva |
-| `bandeirinha-27-original.svg` | Flâmula no hero |
-| `emblema-pedra-original.svg` | Vila Velha (a Taça): hero e seção Destino |
-| `onibus.svg` | Ônibus andando na estrada, seção Destino |
-| `saleiro-original.svg` | **Saleirinho, o mascote**: hero e Dúvidas |
-| `saleiro-silhueta-*.svg` | Marca d'água no rodapé |
-| `prancha-original-completa.svg` | Prancha de referência (2,7 MB). Não é usada na página |
+- **Painéis de cor chapada** (creme, verde, vermelho, carvão) com cantos arredondados no topo,
+  que deslizam por cima do anterior. O painel de trás encolhe e escurece (empilhamento).
+- **Títulos grandes e redondos**, rótulos em **mono pequeno, caixa alta e numerados**
+  ("02 · A ideia"), texto em sans neutro, fichas técnicas com linhas finas.
+- **Adesivos da marca com sombra macia** (nada de sombra dura).
+- **Fotos das VMs anteriores** como protagonistas: rolos no topo e galeria horizontal.
+- **Movimento com propósito**: cada animação conta algo da viagem (ônibus no trajeto,
+  quilômetros subindo, saleiro andando, selo girando).
 
 ## Cores
 
-| Token              | Hex       | Uso |
-|--------------------|-----------|-----|
-| `--verde`          | `#1c3c25` | Cor da marca. Fundos de seção, texto sobre creme |
-| `--verde-escuro`   | `#132a1a` | Destino, rodapé, sombras duras |
-| `--creme`          | `#e9e4d2` | Cor da marca. Fundo claro, texto sobre verde |
-| `--vermelho`       | `#eb3330` | Cor da marca. Faixas, botões, formas. Texto creme só em tamanho grande |
-| `--vermelho-escuro`| `#c4221f` | Quando há texto corrido sobre vermelho (contraste AA) |
-| `--areia`          | `#f3e0b7` | Rótulos sobre verde, adesivo claro |
-| `--amarelo`        | `#f5d547` | **Só** para marcadores de conteúdo pendente (`.ph`) |
-
-Regras: no máximo 2 cores + creme por bloco. Sem gradiente. Sombra só "dura" (offset sólido),
-como adesivo.
+| Token        | Hex       | Uso |
+|--------------|-----------|-----|
+| `--verde`    | `#1c3c25` | Marca, títulos sobre creme, painéis escuros |
+| `--creme`    | `#e9e4d2` | Fundo base, texto sobre cores |
+| `--vermelho` | `#eb3330` | Destaque: centro do selo, sol, botões em hover, painel "Como ir" |
+| `--carvao`   | `#262626` | Painel da Cross Run e equipe Staff |
+| `--fundo`    | `#121412` | Fundo atrás dos painéis (aparece nos cantos arredondados) |
 
 ## Tipografia
 
-- **Hartman & Richard** (`assets/fonts/`): script de pincel. Palavras curtas sobre títulos,
-  versículo, títulos dos cartões de apoio. O "s" alongado faz parte do desenho da fonte.
-- **Rhinayza** (`assets/fonts/`): assinatura fina. Legendas de foto. Sempre ≥ 2rem.
-- **Fraunces** 900, SOFT 100 (Google Fonts): títulos display em caixa-alta, com cara de Cooper.
-- **Jost** (Google Fonts): texto corrido e rótulos espaçados. É a mesma fonte do anel do selo.
+| Papel | Fonte no site | Fonte da identidade |
+|---|---|---|
+| Títulos | Bricolage Grotesque 800, largura 92 (Google Fonts) | Choldem Rosther |
+| Destaques | Hartman & Richard (`assets/fonts/`) | Nikey Vintage |
+| Texto | Inter | — |
+| Rótulos | JetBrains Mono, 12px, caixa alta | mono |
 
-As fontes Hartman e Rhinayza são comerciais. Confirmar se a licença cobre uso na web.
+Quando os arquivos de Choldem Rosther e Nikey Vintage estiverem disponíveis, basta trocar
+`--f-display` e `--f-script` em `styles.css`.
 
-## Elementos
+## Seções
 
-- Selo circular, flâmula, emblema em arco, adesivos levemente girados com borda creme.
-- Letreiro vermelho rolando entre seções.
-- Bilhetes de viagem com recorte lateral (roteiro).
-- Grão de filme (SVG `feTurbulence`) por cima de tudo, baixa opacidade.
+01 Topo (selo + versículo + rolos de fotos + estrada com ônibus) · 02 A ideia · 03 Destino
+(emblema + trajeto animado de 115 km) · 04 Na prática (frentes + adesivos arrastáveis) ·
+05 Equipes (Geral, Staff, Saúde) · 06 Roteiro (cartão de embarque + dias) · 07 Outras VMs
+(galeria horizontal) · 08 Como ir · 09 Cross Run (abas automáticas) · 10 Apoie · 11 Dúvidas · Fim.
 
 ## Movimento
 
-O anel do selo gira, a flâmula tremula, o saleirinho anda, o ônibus atravessa a estrada e o
-letreiro rola. Tudo desliga com `prefers-reduced-motion`.
+GSAP 3.12.5 (ScrollTrigger, Draggable) e Lenis 1.1.13, por CDN. Sem eles, ou com
+"reduzir movimento", a página continua completa e estática. Empilhamento e galeria
+horizontal só a partir de 900px; no celular, a galeria rola com o dedo.
 
-## Tema
+## Conteúdo pendente
 
-Paleta fixa, sem modo escuro: as seções verdes já fazem o papel do escuro.
+Aparece como `<span class="ph">[...]</span>` (borda tracejada, fonte mono).
+Espaços de foto: `<div class="foto" data-foto="...">` — ver `assets/fotos/LEIA-ME.md`.
