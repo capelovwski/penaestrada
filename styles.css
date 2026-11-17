@@ -1399,3 +1399,12 @@ html.js .mapa__halo { opacity: 1; animation: mapa-halo 7s linear 0.3s infinite b
 /* líderes: cor de destaque */
 :root { --mostarda: #e8a92b; }
 .equipe--lider .equipe__faixa { background: var(--mostarda); color: var(--verde); }
+
+/* ---------- roteiro em carvão ---------- */
+.roteiro .passe { box-shadow: 0 50px 90px -30px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04); }
+.roteiro .passe__canhoto::before,
+.roteiro .passe__canhoto::after { background: var(--carvao); }
+.roteiro .dia { border-top-color: var(--creme); }
+.roteiro .dia > p:last-child { opacity: 0.85; }
+
+@media (max-width: 760px) { .passe__campos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
