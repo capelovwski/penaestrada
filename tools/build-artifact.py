@@ -43,7 +43,7 @@ pagina = f"""<title>Pé na Estrada</title>
 """
 (saida / "index.html").write_text(pagina, encoding="utf-8")
 
-usados = sorted(set(re.findall(r'(assets/(?:marca|equipes|fotos)/[^"\')]+\.(?:svg|webp))', body + css)))
+usados = sorted(set(re.findall(r'(assets/(?:marca|equipes|fotos)/[^"\')\s,]+\.(?:svg|webp))', body + css)))
 for rel in usados:
     destino = saida / rel
     destino.parent.mkdir(parents=True, exist_ok=True)

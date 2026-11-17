@@ -1832,3 +1832,48 @@ html.anima .hero__cards .card-foto__in { animation: none; }
 @media (prefers-reduced-motion: reduce) { .saleiro-anda { left: 8%; } }
 .saleiro-anda { width: 17%; bottom: -8%; }
 @media (max-width: 760px) { .saleiro-anda { width: 26%; bottom: -16%; } }
+
+/* ---------- topo: um saleirinho de cada lado, entre as fotos ---------- */
+.hero-saleiro {
+  position: absolute;
+  z-index: 4;
+  width: 9.5vw;
+  max-width: 150px;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 22px rgba(28, 60, 37, 0.3));
+  animation: flutuar 5s ease-in-out infinite alternate;
+}
+.hero-saleiro--esq { left: 15.5%; top: 32%; rotate: -10deg; }
+.hero-saleiro--dir { right: 15.5%; top: 34%; rotate: 9deg; animation-delay: -2.5s; }
+@media (max-width: 1100px) {
+  .hero-saleiro { width: 13vw; }
+  .hero-saleiro--esq { left: 4%; top: 44%; }
+  .hero-saleiro--dir { right: 4%; top: 46%; }
+}
+@media (max-width: 760px) {
+  .hero-saleiro { width: 21vw; }
+  .hero-saleiro--esq { left: 1%; top: 47%; }
+  .hero-saleiro--dir { right: 1%; top: 49%; }
+}
+
+/* ---------- desempenho ---------- */
+/* seções fora da tela não são pintadas até chegar perto */
+/* sombras desfocadas pesam no celular: versões mais leves */
+@media (max-width: 760px) {
+  .card-foto__in { box-shadow: 0 12px 20px -12px rgba(28, 60, 37, 0.45); }
+  .adesivo, .ia, .dm, .hero-saleiro { filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25)); }
+  .mapa__halo { display: none; }
+}
+.card-foto__in, .adesivo, .hero-saleiro { will-change: auto; }
+
+/* luz do contorno controlada pelo script (medidas em pixels, igual em todos os navegadores) */
+.mapa.luz-js .mapa__cauda .c,
+.mapa.luz-js .mapa__luz,
+.mapa.luz-js .mapa__halo { animation: none !important; }
+html:not(.js) .mapa__cauda, html:not(.js) .mapa__luz, html:not(.js) .mapa__halo { display: none; }
+html:not(.js) .mapa__traco { display: inline; }
+
+/* luz: só traço fino, sem halo desfocado (o desfoque não funciona em todos os navegadores) */
+.mapa__halo { display: none !important; }
+.mapa__cauda .c, .mapa__cauda .c0, .mapa__cauda .c1 { stroke-width: 1.6; filter: none !important; }
+.mapa__luz { stroke-width: 2.4; stroke-linecap: round; }

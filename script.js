@@ -161,6 +161,38 @@
     });
   });
 
+  /* ---------- luz que contorna o mapa (pixels reais, funciona no Safari) ---------- */
+  $$("svg.mapa").forEach((svg) => {
+    const base = svg.querySelector("defs path");
+    if (!base || !base.getTotalLength) return;
+    const L = base.getTotalLength();
+    const partes = [...svg.querySelectorAll(".mapa__cauda .c, .mapa__halo, .mapa__luz")];
+    if (reduzido || !partes[0].animate) {
+      svg.classList.add("luz-js");
+      partes.forEach((p) => (p.style.display = "none"));
+      const t = svg.querySelector(".mapa__traco");
+      if (t) t.style.display = "inline";
+      return;
+    }
+    svg.classList.add("luz-js");
+    const T = 7000;
+    const cauda = partes.filter((p) => p.classList.contains("c"));
+    const N = cauda.length;
+    const seg = L / N;
+    const anima1 = (el, comp, ini) => {
+      el.style.strokeDasharray = `${comp} ${L - comp}`;
+      el.animate(
+        [{ strokeDashoffset: ini }, { strokeDashoffset: ini - L }],
+        { duration: T, iterations: Infinity, easing: "linear", delay: 300 }
+      );
+    };
+    cauda.forEach((el, k) => anima1(el, seg + 0.3, (k + 1) * seg));
+    const halo = svg.querySelector(".mapa__halo");
+    const luz = svg.querySelector(".mapa__luz");
+    if (halo) anima1(halo, L * 0.012, L * 0.008);
+    if (luz) anima1(luz, L * 0.012, L * 0.012);
+  });
+
   if (!anima) return; /* ======= daqui pra baixo, só com movimento ======= */
 
   raiz.classList.add("anima");
@@ -241,7 +273,7 @@
   gsap.from(".hero__palco .selo", { scale: 0.94, opacity: 0, duration: 1.8, delay: 0.6 });
   gsap.from(".hero__vers, .hero__ref, .hero__acoes", { y: 16, duration: 1.4, stagger: 0.08, delay: 0.9 });
   gsap.from(".mapa__nota", { opacity: 0, duration: 1.2, stagger: 0.15, delay: 2.4 });
-  gsap.from(".hero__saleiro", { x: 40, y: -10, rotation: 8, opacity: 0, duration: 1.8, delay: 1.3 });
+  gsap.from(".hero-saleiro", { y: 30, scale: 0.85, opacity: 0, duration: 1.6, stagger: 0.15, delay: 1.1 });
   gsap.to(".hero__palco .selo", {
     yPercent: -8, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
