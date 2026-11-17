@@ -915,29 +915,6 @@ html.anima .manifesto .p { opacity: 0.22; }
   max-width: none;
 }
 .mapa__area { fill: var(--verde); fill-opacity: 0.045; stroke: none; }
-.mapa__linha {
-  fill: none;
-  stroke: var(--verde);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 0.1 8;
-  vector-effect: non-scaling-stroke;
-}
-.mapa__revela {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 40;
-  stroke-dasharray: 1 1;
-  stroke-dashoffset: 0;
-}
-html.js .mapa__revela { animation: mapa-desenha 4.2s cubic-bezier(0.65, 0, 0.35, 1) 0.2s both; }
-html.js .mapa__linha { animation: mapa-anda 2.8s linear infinite; }
-html.js .mapa__area { animation: mapa-preenche 1.6s ease 3.4s both; }
-@keyframes mapa-desenha { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes mapa-anda { to { stroke-dashoffset: -16.2; } }
-@keyframes mapa-preenche { from { fill-opacity: 0; } to { fill-opacity: 0.045; } }
-
 .mapa__nota {
   position: absolute;
   margin: 0;
@@ -947,12 +924,58 @@ html.js .mapa__area { animation: mapa-preenche 1.6s ease 3.4s both; }
 }
 .mapa__nota--a { left: 0; bottom: 2%; }
 .mapa__nota--b { right: 0; top: 2%; text-align: right; }
-.hero__palco .selo { width: 40%; }
+.hero__palco .selo { width: 40%; z-index: 2; }
+
+/* contorno: traço fino que se desenha + luz vermelha que dá a volta */
+.mapa__traco, .mapa__halo, .mapa__rastro, .mapa__luz {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mapa__traco {
+  stroke: var(--verde);
+  stroke-opacity: 0.45;
+  stroke-width: 1.4;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+.mapa__luz, .mapa__halo, .mapa__rastro { stroke: var(--vermelho); opacity: 0; }
+.mapa__luz { stroke-width: 2.8; stroke-dasharray: 0.035 0.965; }
+.mapa__rastro { stroke-width: 1.8; stroke-opacity: 0.45; stroke-dasharray: 0.11 0.89; }
+.mapa__halo { stroke-width: 12; stroke-opacity: 0.5; stroke-dasharray: 0.07 0.93; }
+html.js .mapa__traco { animation: mapa-traca 7s linear 0.3s both; }
+html.js .mapa__luz { opacity: 1; animation: mapa-luz 7s linear 0.3s infinite both; }
+html.js .mapa__rastro { opacity: 1; animation: mapa-rastro 7s linear 0.3s infinite both; }
+html.js .mapa__halo { opacity: 1; animation: mapa-halo 7s linear 0.3s infinite both; }
+@keyframes mapa-traca { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes mapa-luz { from { stroke-dashoffset: 0.035; } to { stroke-dashoffset: -0.965; } }
+@keyframes mapa-rastro { from { stroke-dashoffset: 0.11; } to { stroke-dashoffset: -0.89; } }
+@keyframes mapa-halo { from { stroke-dashoffset: 0.07; } to { stroke-dashoffset: -0.93; } }
+@media (prefers-reduced-motion: reduce) {
+  html.js .mapa__luz, html.js .mapa__rastro, html.js .mapa__halo { opacity: 0; }
+}
+
+/* saleirinho: adesivo recortado, saindo de trás do selo */
+.hero__saleiro {
+  position: absolute;
+  z-index: 1;
+  width: 15%;
+  left: 22%;
+  top: 47%;
+  rotate: -14deg;
+  filter:
+    drop-shadow(3px 0 0 var(--creme-claro, #f6f2e6))
+    drop-shadow(-3px 0 0 var(--creme-claro, #f6f2e6))
+    drop-shadow(0 3px 0 var(--creme-claro, #f6f2e6))
+    drop-shadow(0 -3px 0 var(--creme-claro, #f6f2e6))
+    drop-shadow(0 14px 18px rgba(28, 60, 37, 0.28));
+}
 
 @media (max-width: 760px) {
   .hero__palco { width: 100%; min-width: 0; margin-block: 14% 12%; }
   .mapa { inset: -25% -25%; width: 150%; height: 150%; }
   .hero__palco .selo { width: 64%; }
+  .hero__saleiro { width: 22%; left: 8%; top: 50%; }
   .mapa__nota { display: none; }
 }
 
@@ -1051,3 +1074,318 @@ html.js .mapa__area { animation: mapa-preenche 1.6s ease 3.4s both; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   html.anima .manifesto .p { opacity: 1; }
 }
+
+/* ---------- topo em tela cheia ---------- */
+.hero { --espiada: 84px; padding-top: 0; }
+.hero__centro {
+  min-height: calc(100svh - var(--espiada));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  padding-bottom: 28px;
+}
+.hero__palco {
+  width: min(860px, 100%, calc((100svh - 400px) * 1.39));
+  min-width: min(560px, 100%);
+}
+.hero .rolo { margin-top: 0; }
+@media (max-width: 760px) {
+  .hero { --espiada: 72px; }
+  .hero__palco { width: 100%; min-width: 0; }
+}
+
+/* listas sem numeração */
+.frentes li { grid-template-columns: 1fr; }
+
+/* ---------- seção 2: versículos e adesivos ---------- */
+.ideia { position: relative; }
+.ideia > .wrap { position: relative; z-index: 1; }
+.versos {
+  margin: clamp(88px, 11vw, 150px) auto 0;
+  max-width: 980px;
+  text-align: center;
+}
+.versos__pergunta {
+  max-width: 36em;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.8;
+}
+.versos .manifesto {
+  margin: clamp(22px, 3vw, 36px) auto 0;
+  max-width: 15em;
+  font-size: clamp(2.3rem, 5.4vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.versos figcaption { margin-top: clamp(22px, 3vw, 32px); opacity: 0.65; }
+
+.ideia__adesivos { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.ia {
+  position: absolute;
+  height: auto;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.32));
+}
+.ia-saleiro-a { width: clamp(78px, 8vw, 128px); right: 3.5%; top: 5%; rotate: 9deg; }
+.ia-saleiro-b { width: clamp(78px, 8vw, 128px); left: 3%; bottom: 7%; rotate: -10deg; }
+.ia-saleiro-c { width: clamp(62px, 6vw, 96px); right: 9%; bottom: 20%; rotate: 14deg;
+  filter:
+    drop-shadow(3px 0 0 var(--creme)) drop-shadow(-3px 0 0 var(--creme))
+    drop-shadow(0 3px 0 var(--creme)) drop-shadow(0 -3px 0 var(--creme))
+    drop-shadow(0 14px 18px rgba(0, 0, 0, 0.32)); }
+.ia-etiqueta { width: clamp(120px, 12vw, 190px); right: 4%; bottom: 5%; rotate: -8deg; }
+.ia-bandeira { width: clamp(110px, 11vw, 170px); left: 5%; bottom: 30%; rotate: -14deg; }
+.ia-cross { width: clamp(90px, 9vw, 140px); left: 44%; bottom: 3%; rotate: -6deg; }
+@media (max-width: 860px) {
+  .ia-bandeira, .ia-cross, .ia-saleiro-c { display: none; }
+  .ia-saleiro-a { top: 2%; right: 4%; width: 70px; }
+  .ia-saleiro-b { bottom: 2%; left: 4%; width: 70px; }
+  .ia-etiqueta { bottom: 2%; right: 4%; width: 104px; }
+  .versos { margin-bottom: 72px; }
+}
+
+/* roteiro com 5 dias */
+.dias { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 860px) { .dias { grid-template-columns: none; } }
+
+/* ---------- destino: silhueta do município + adesivos ---------- */
+@media (min-width: 900px) { .destino__grade { grid-template-columns: 1.1fr 0.9fr; } }
+.destino__mapa {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 596 / 428;
+  margin: 0;
+}
+.destino__silhueta { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; overflow: visible; }
+.destino__silhueta path { fill: var(--verde); }
+.destino__mapa .destino__emblema {
+  position: absolute;
+  z-index: 1;
+  width: 34%;
+  left: 40%;
+  top: 6%;
+  perspective: 900px;
+}
+.destino__mapa .destino__emblema img { rotate: -3deg; filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.35)); }
+.dm { position: absolute; z-index: 2; height: auto; filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.3)); }
+.dm-saleiro { width: 17%; left: 13%; top: 30%; rotate: -4deg; }
+.dm-bandeira { width: 24%; right: 3%; top: 26%; rotate: 6deg; }
+.destino__legenda {
+  position: absolute;
+  z-index: 1;
+  left: 29%;
+  bottom: 9%;
+  color: var(--creme);
+  font-size: 0.66rem;
+  opacity: 0.85;
+}
+@media (max-width: 899px) { .destino__mapa { max-width: 520px; } }
+
+/* ---------- logo Cross (assinatura, muda de cor com o fundo) ---------- */
+.logo-cross { display: block; height: 100%; width: auto; fill: currentColor; overflow: visible; }
+.nav__marca { display: block; height: 34px; }
+.nav__marca .logo-cross { height: 34px; }
+.fim__assina .logo-cross { height: 30px; }
+
+/* ---------- prática: adesivos espalhados por toda a lateral direita ---------- */
+.mural-adesivos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  min-height: 0;
+  background: none;
+  border-radius: 0;
+}
+.mural-adesivos .adesivo { right: auto; bottom: auto; }
+.a-bandeira { left: 8%; top: 7%; width: 28%; rotate: -10deg; }
+.a-pedra { left: 64%; top: 4%; width: 22%; rotate: 8deg; }
+.a-selo { left: 30%; top: 25%; width: 40%; rotate: 4deg; }
+.a-saleiro { left: 7%; top: 45%; width: 15%; rotate: -8deg; }
+.a-etiqueta { left: 60%; top: 54%; width: 28%; rotate: -7deg; }
+.a-saleiro2 { left: 26%; top: 68%; width: 15%; rotate: 8deg; }
+.a-cross { left: 58%; top: 82%; width: 26%; rotate: -9deg; }
+@media (max-width: 959px) {
+  .mural-adesivos { position: relative; width: 100%; height: clamp(440px, 110vw, 620px); }
+}
+
+/* ---------- equipes: cartões com camiseta frente e costas ---------- */
+.equipes { padding-bottom: clamp(110px, 12vw, 170px); }
+.equipes__grade {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+}
+@media (max-width: 1100px) { .equipes__grade { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .equipes__grade { grid-template-columns: 1fr; } }
+.equipes__grade .equipe {
+  flex: none;
+  padding: 0;
+  gap: 0;
+  justify-content: flex-start;
+  min-height: 0;
+  border-radius: 20px;
+  background: var(--creme-2);
+  color: var(--creme);
+}
+.equipe__camisas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  padding: 22px 12px 14px;
+}
+.equipe__camisas img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 16px rgba(28, 60, 37, 0.18));
+  transition: transform 0.7s var(--ease);
+}
+.equipe:hover .equipe__camisas img:first-child { transform: translateX(-3%) rotate(-2deg); }
+.equipe:hover .equipe__camisas img:last-child { transform: translateX(3%) rotate(2deg); }
+.equipe__camisas--vazio {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  aspect-ratio: 2 / 1.15;
+  padding: 20px;
+  text-align: center;
+  color: var(--verde);
+  border: 1.5px dashed rgba(28, 60, 37, 0.25);
+  border-radius: 20px 20px 0 0;
+}
+.equipe__faixa { flex: 1; display: grid; gap: 6px; align-content: start; padding: 18px 20px 22px; }
+.equipe--verde .equipe__faixa { background: var(--verde); }
+.equipe--carvao .equipe__faixa { background: var(--carvao); }
+.equipe--vermelho .equipe__faixa { background: var(--vermelho-escuro); }
+.equipe--lider .equipe__faixa { background: var(--areia, #f3e0b7); color: var(--verde); }
+.equipe__cor { opacity: 0.75; }
+.equipes__grade .equipe__nome { font-size: clamp(2.2rem, 3vw, 3rem); }
+.equipe__quem { font-size: 0.98rem; line-height: 1.45; }
+
+/* ---------- cartão de embarque branco ---------- */
+.passe {
+  background: #fdfcf8;
+  color: var(--verde);
+  box-shadow: 0 40px 70px -30px rgba(28, 60, 37, 0.35), 0 0 0 1px rgba(28, 60, 37, 0.08);
+}
+.passe__faixa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: calc(-1 * clamp(22px, 3.2vw, 44px)) calc(-1 * clamp(22px, 3.2vw, 44px)) clamp(22px, 2.6vw, 34px);
+  padding: 14px clamp(22px, 3.2vw, 44px);
+  background: var(--verde);
+  color: var(--creme);
+  border-radius: 28px 0 0 0;
+}
+.passe__faixa .logo-cross { height: 26px; }
+.passe__trecho { margin-top: 0; }
+.passe__campos {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  row-gap: 22px;
+  border-top-color: rgba(28, 60, 37, 0.14);
+}
+.passe__canhoto { border-left-color: rgba(28, 60, 37, 0.25); }
+.passe__resumo { display: grid; gap: 4px; opacity: 0.75; }
+.passe__barras {
+  background: repeating-linear-gradient(90deg,
+    var(--verde) 0 2px, transparent 2px 5px, var(--verde) 5px 6px, transparent 6px 9px,
+    var(--verde) 9px 12px, transparent 12px 14px, var(--verde) 14px 15px, transparent 15px 19px);
+}
+@media (max-width: 760px) {
+  .passe__faixa { border-radius: 28px 28px 0 0; }
+  .passe__canhoto { border-top-color: rgba(28, 60, 37, 0.25); }
+  .passe__resumo { display: none; }
+}
+
+/* ---------- CTA final ---------- */
+.fim { padding-top: clamp(120px, 12vw, 180px); padding-bottom: 0; }
+.fim__mapa {
+  position: absolute;
+  inset: auto;
+  right: -8%;
+  top: 6%;
+  width: min(70%, 1000px);
+  height: auto;
+  aspect-ratio: 596 / 428;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.mapa--claro .mapa__traco { stroke: var(--creme); stroke-opacity: 0.3; }
+.mapa--claro .mapa__luz, .mapa--claro .mapa__rastro, .mapa--claro .mapa__halo { stroke: var(--creme); }
+.mapa--claro .mapa__halo { stroke-opacity: 0.6; }
+
+.fim__grade {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(48px, 6vw, 80px);
+  align-items: center;
+  padding-bottom: clamp(100px, 11vw, 160px);
+}
+@media (min-width: 960px) { .fim__grade { grid-template-columns: 1.35fr 0.65fr; } }
+.fim__texto { display: grid; justify-items: start; gap: clamp(24px, 3vw, 36px); }
+.fim__etiqueta, .fim__fatos li {
+  background: var(--creme);
+  color: var(--verde);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+.fim .fim__frase {
+  max-width: 8.5em;
+  font-size: clamp(4rem, 10.5vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-shadow: 0.03em 0.04em 0 var(--vermelho-escuro);
+}
+.fim__acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+.botao--xg { min-height: 68px; padding: 0 36px; font-size: 1.12rem; }
+.fim .botao::before { background: var(--verde); }
+.fim .botao:hover { border-color: var(--verde); }
+.fim .botao--creme { --fg: var(--verde); }
+.fim__fatos { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.fim__selo { position: relative; justify-self: center; width: min(100%, 440px); }
+.fim__selo .selo { width: 100%; filter: drop-shadow(0 30px 40px rgba(80, 10, 8, 0.35)); }
+.fim__saleiro {
+  position: absolute;
+  left: -10%;
+  bottom: -4%;
+  width: 30%;
+  rotate: -10deg;
+  filter: drop-shadow(0 14px 18px rgba(80, 10, 8, 0.35));
+}
+@media (max-width: 959px) {
+  .fim__mapa { right: -30%; top: auto; bottom: 18%; width: 130%; }
+  .fim__selo { width: min(72%, 320px); }
+}
+
+/* ---------- ajustes: galeria em tela cheia, fundo do menu, legenda ---------- */
+.galeria--horizontal {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 96px 64px;
+}
+.nav { isolation: isolate; }
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -32px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(var(--nav-bg, transparent) 45%, transparent);
+  transition: background 0.4s var(--ease);
+}
+.destino__legenda { left: 47%; top: 64%; bottom: auto; }

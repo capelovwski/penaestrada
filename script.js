@@ -106,79 +106,15 @@
       if (r.top <= 44 && r.bottom > 44) atual = p;
     }
     nav.dataset.tema = atual.dataset.tema || "claro";
+    nav.style.setProperty("--nav-bg", getComputedStyle(atual).backgroundColor);
   }
   function aoRolar() {
     const y = window.scrollY;
-    if (menu.hidden) {
-      if (y > ultimoY + 6 && y > 240) nav.classList.add("escondida");
-      else if (y < ultimoY - 6) nav.classList.remove("escondida");
-    }
     ultimoY = y;
     temaNav();
   }
   window.addEventListener("scroll", () => requestAnimationFrame(aoRolar), { passive: true });
   temaNav();
-
-  /* ---------- Cross Run: abas que avançam sozinhas ---------- */
-  const abasConteudo = [
-    ["01 · A corrida", "Uma corrida aberta com a juventude.", "Largada uma semana antes da viagem."],
-    ["02 · Quem corre", "Divulgada para o UP e o GO.", "Pais e familiares também podem correr e doar."],
-    ["03 · Arrecadação", "Arrecadar para a VM.", "O dinheiro financia ações na VM ou é doado a casas de apoio da cidade que acolher o grupo."],
-    ["04 · Percursos", "2 km ou 5 km.", "Percurso 01 · 2 km  /  Percurso 02 · 5 km"],
-    ["05 · Inscrição", "R$ 20.", "Inclui pulseira e número de peito."],
-    ["06 · Doação", "Qualquer valor.", "Doações acima de R$ 50 incluem um kit da Cross Run."],
-  ];
-  const abas = $(".abas");
-  const botoesAba = $$('[role="tab"]', abas);
-  const palco = $(".corrida__palco");
-  const TEMPO = 5200;
-  let abaAtual = 0, abaTimer = null, tocando = false, visivel = false, pausado = false;
-
-  function mostrarAba(i, foco = false) {
-    abaAtual = (i + botoesAba.length) % botoesAba.length;
-    botoesAba.forEach((b, j) => {
-      const sel = j === abaAtual;
-      b.setAttribute("aria-selected", String(sel));
-      b.tabIndex = sel ? 0 : -1;
-      const barra = $(".abas__barra i", b);
-      barra.style.animation = "none";
-      void barra.offsetWidth;
-      barra.style.animation = "";
-    });
-    if (foco) botoesAba[abaAtual].focus();
-    palco.setAttribute("aria-labelledby", botoesAba[abaAtual].id);
-    palco.classList.add("trocando");
-    setTimeout(() => {
-      const [num, frase, sub] = abasConteudo[abaAtual];
-      $(".corrida__num", palco).textContent = num;
-      $(".corrida__frase", palco).textContent = frase;
-      $(".corrida__sub", palco).textContent = sub;
-      palco.classList.remove("trocando");
-    }, reduzido ? 0 : 280);
-    agendar();
-  }
-  function agendar() {
-    clearTimeout(abaTimer);
-    tocando = visivel && !pausado && !reduzido;
-    abas.classList.toggle("tocando", tocando);
-    abas.style.setProperty("--tempo", TEMPO + "ms");
-    if (tocando) abaTimer = setTimeout(() => mostrarAba(abaAtual + 1), TEMPO);
-  }
-  botoesAba.forEach((b, i) => {
-    b.addEventListener("click", () => { pausado = true; mostrarAba(i); });
-    b.addEventListener("keydown", (e) => {
-      const passo = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (passo) { e.preventDefault(); pausado = true; mostrarAba(abaAtual + passo, true); }
-      if (e.key === "Home") { e.preventDefault(); pausado = true; mostrarAba(0, true); }
-      if (e.key === "End") { e.preventDefault(); pausado = true; mostrarAba(botoesAba.length - 1, true); }
-    });
-  });
-  const corrida = $(".corrida");
-  corrida.addEventListener("mouseenter", () => { pausado = true; agendar(); });
-  corrida.addEventListener("mouseleave", () => { pausado = false; agendar(); });
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([e]) => { visivel = e.isIntersecting; agendar(); }, { threshold: 0.35 }).observe(corrida);
-  }
 
   /* ---------- FAQ com altura animada ---------- */
   $$(".faq details").forEach((d) => {
@@ -280,6 +216,7 @@
   gsap.from(".hero__palco .selo", { scale: 0.94, opacity: 0, duration: 1.8, delay: 0.6 });
   gsap.from(".hero__vers, .hero__ref, .hero__acoes", { y: 16, duration: 1.4, stagger: 0.08, delay: 0.9 });
   gsap.from(".mapa__nota", { opacity: 0, duration: 1.2, stagger: 0.15, delay: 2.4 });
+  gsap.from(".hero__saleiro", { x: 40, y: -10, rotation: 8, opacity: 0, duration: 1.8, delay: 1.3 });
   gsap.from(".rolo__linha", { x: (i) => (i ? -60 : 60), duration: 2, delay: 0.4 });
   gsap.to(".hero__palco .selo", {
     yPercent: -8, ease: "none",
@@ -305,16 +242,20 @@
     scrollTrigger: { trigger: manifesto, start: "top 82%", end: "bottom 40%", scrub: true },
   });
 
-  /* ---------- 03 · destino ---------- */
-  entra(".destino__emblema img", { y: 50, opacity: 0, duration: 1.6 }, ".destino__emblema");
-  entra(".destino__texto > *", { y: 20, opacity: 0, stagger: 0.07 }, ".destino__texto");
-  entra(".dados > div", { y: 16, opacity: 0, stagger: 0.07 }, ".dados", "top 90%");
-  const km = $("[data-km]");
-  const cont = { v: 0 };
-  ScrollTrigger.create({
-    trigger: ".dados", start: "top 90%", once: true,
-    onEnter: () => gsap.fromTo(cont, { v: 0 }, { v: 115, duration: 2, ease: "power2.out", onUpdate: () => (km.textContent = Math.round(cont.v)) }),
+  entra(".ia", { y: 30, opacity: 0, duration: 1.4, stagger: 0.08 }, ".ideia", "top 70%");
+  $$(".ia").forEach((el, i) => {
+    const prof = [1.2, 0.8, 1.4, 0.6, 1, 0.9][i % 6];
+    gsap.fromTo(el, { y: 50 * prof }, {
+      y: -50 * prof, ease: "none", immediateRender: false,
+      scrollTrigger: { trigger: ".ideia", start: "top bottom", end: "bottom top", scrub: true },
+    });
   });
+
+  /* ---------- 03 · destino ---------- */
+  entra(".destino__emblema img", { y: 40, opacity: 0, duration: 1.6, delay: 0.15 }, ".destino__mapa");
+  entra(".destino__texto > *", { y: 20, opacity: 0, stagger: 0.07 }, ".destino__texto");
+  entra(".destino__silhueta", { scale: 0.96, opacity: 0, duration: 1.6 }, ".destino__mapa");
+  entra(".dm", { y: 24, opacity: 0, duration: 1.3, stagger: 0.1, delay: 0.3 }, ".destino__mapa");
   mm.add("(hover: hover) and (pointer: fine)", () => {
     const img = $(".destino__emblema img");
     const rx = gsap.quickTo(img, "rotationX", { duration: 0.9, ease: "power3" });
@@ -343,7 +284,7 @@
   });
 
   /* ---------- 05 · equipes ---------- */
-  entra(".equipe", { yPercent: 8, duration: 1.4, stagger: 0.08 }, ".equipes__cols", "top 92%");
+  entra(".equipe", { y: 40, opacity: 0, duration: 1.4, stagger: 0.08 }, ".equipes__grade", "top 88%");
 
   /* ---------- 06 · roteiro ---------- */
   entra(".passe", { y: 50, opacity: 0, duration: 1.4 }, ".passe");
@@ -354,15 +295,13 @@
   entra(".ir__chamada > *", { y: 20, opacity: 0, stagger: 0.07 }, ".ir__chamada");
   entra(".ficha-ir", { y: 40, opacity: 0, duration: 1.4 }, ".ficha-ir");
 
-  /* ---------- 09 · cross run ---------- */
-  entra(".corrida__cross", { yPercent: 30, opacity: 0, duration: 1.3 }, ".corrida__logo");
-  entra(".corrida__run", { x: -16, opacity: 0, duration: 1.3, delay: 0.15 }, ".corrida__logo");
 
   /* ---------- 10 · apoie / 11 · dúvidas / fim ---------- */
   entra(".apoio", { y: 20, opacity: 0, stagger: 0.08 }, ".apoios");
   entra(".faq details", { y: 14, opacity: 0, duration: 1, stagger: 0.05 }, ".faq");
-  entra(".fim .selo", { scale: 0.94, opacity: 0, duration: 1.6 }, ".fim__centro");
-  entra(".fim__frase", { y: 30, opacity: 0, duration: 1.4 }, ".fim__centro");
+  entra(".fim .selo", { scale: 0.92, opacity: 0, duration: 1.8 }, ".fim__grade");
+  entra(".fim__saleiro", { x: -30, opacity: 0, duration: 1.6, delay: 0.4 }, ".fim__grade");
+  entra(".fim__texto > *", { y: 30, opacity: 0, duration: 1.4, stagger: 0.08 }, ".fim__grade");
 
   /* recalcula depois que fontes e imagens carregam */
   document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
