@@ -1408,3 +1408,74 @@ html.js .mapa__halo { opacity: 1; animation: mapa-halo 7s linear 0.3s infinite b
 .roteiro .dia > p:last-child { opacity: 0.85; }
 
 @media (max-width: 760px) { .passe__campos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- luz do contorno: rastro que vai apagando até a próxima volta ---------- */
+.mapa__cauda .c {
+  fill: none;
+  stroke: var(--vermelho);
+  stroke-width: 2.2;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  stroke-dasharray: 0.0457 0.9543;
+  opacity: 0;
+}
+html.js .mapa__cauda .c {
+  opacity: 1;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-delay: 0.3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+html.js .mapa__cauda { animation: cauda-entra 7s linear 0.3s both; }
+@keyframes cauda-entra { from { opacity: 0; } to { opacity: 1; } }
+.mapa--claro .mapa__cauda .c { stroke: var(--creme); }
+.mapa__cauda .c0 { stroke-opacity: 0.850; animation-name: cauda-0; }
+@keyframes cauda-0 { from { stroke-dashoffset: 0.0417; } to { stroke-dashoffset: -0.9583; } }
+.mapa__cauda .c1 { stroke-opacity: 0.794; animation-name: cauda-1; }
+@keyframes cauda-1 { from { stroke-dashoffset: 0.0833; } to { stroke-dashoffset: -0.9167; } }
+.mapa__cauda .c2 { stroke-opacity: 0.740; animation-name: cauda-2; }
+@keyframes cauda-2 { from { stroke-dashoffset: 0.1250; } to { stroke-dashoffset: -0.8750; } }
+.mapa__cauda .c3 { stroke-opacity: 0.686; animation-name: cauda-3; }
+@keyframes cauda-3 { from { stroke-dashoffset: 0.1667; } to { stroke-dashoffset: -0.8333; } }
+.mapa__cauda .c4 { stroke-opacity: 0.635; animation-name: cauda-4; }
+@keyframes cauda-4 { from { stroke-dashoffset: 0.2083; } to { stroke-dashoffset: -0.7917; } }
+.mapa__cauda .c5 { stroke-opacity: 0.585; animation-name: cauda-5; }
+@keyframes cauda-5 { from { stroke-dashoffset: 0.2500; } to { stroke-dashoffset: -0.7500; } }
+.mapa__cauda .c6 { stroke-opacity: 0.536; animation-name: cauda-6; }
+@keyframes cauda-6 { from { stroke-dashoffset: 0.2917; } to { stroke-dashoffset: -0.7083; } }
+.mapa__cauda .c7 { stroke-opacity: 0.490; animation-name: cauda-7; }
+@keyframes cauda-7 { from { stroke-dashoffset: 0.3333; } to { stroke-dashoffset: -0.6667; } }
+.mapa__cauda .c8 { stroke-opacity: 0.444; animation-name: cauda-8; }
+@keyframes cauda-8 { from { stroke-dashoffset: 0.3750; } to { stroke-dashoffset: -0.6250; } }
+.mapa__cauda .c9 { stroke-opacity: 0.401; animation-name: cauda-9; }
+@keyframes cauda-9 { from { stroke-dashoffset: 0.4167; } to { stroke-dashoffset: -0.5833; } }
+.mapa__cauda .c10 { stroke-opacity: 0.359; animation-name: cauda-10; }
+@keyframes cauda-10 { from { stroke-dashoffset: 0.4583; } to { stroke-dashoffset: -0.5417; } }
+.mapa__cauda .c11 { stroke-opacity: 0.319; animation-name: cauda-11; }
+@keyframes cauda-11 { from { stroke-dashoffset: 0.5000; } to { stroke-dashoffset: -0.5000; } }
+.mapa__cauda .c12 { stroke-opacity: 0.280; animation-name: cauda-12; }
+@keyframes cauda-12 { from { stroke-dashoffset: 0.5417; } to { stroke-dashoffset: -0.4583; } }
+.mapa__cauda .c13 { stroke-opacity: 0.244; animation-name: cauda-13; }
+@keyframes cauda-13 { from { stroke-dashoffset: 0.5833; } to { stroke-dashoffset: -0.4167; } }
+.mapa__cauda .c14 { stroke-opacity: 0.209; animation-name: cauda-14; }
+@keyframes cauda-14 { from { stroke-dashoffset: 0.6250; } to { stroke-dashoffset: -0.3750; } }
+.mapa__cauda .c15 { stroke-opacity: 0.177; animation-name: cauda-15; }
+@keyframes cauda-15 { from { stroke-dashoffset: 0.6667; } to { stroke-dashoffset: -0.3333; } }
+.mapa__cauda .c16 { stroke-opacity: 0.147; animation-name: cauda-16; }
+@keyframes cauda-16 { from { stroke-dashoffset: 0.7083; } to { stroke-dashoffset: -0.2917; } }
+.mapa__cauda .c17 { stroke-opacity: 0.118; animation-name: cauda-17; }
+@keyframes cauda-17 { from { stroke-dashoffset: 0.7500; } to { stroke-dashoffset: -0.2500; } }
+.mapa__cauda .c18 { stroke-opacity: 0.092; animation-name: cauda-18; }
+@keyframes cauda-18 { from { stroke-dashoffset: 0.7917; } to { stroke-dashoffset: -0.2083; } }
+.mapa__cauda .c19 { stroke-opacity: 0.069; animation-name: cauda-19; }
+@keyframes cauda-19 { from { stroke-dashoffset: 0.8333; } to { stroke-dashoffset: -0.1667; } }
+.mapa__cauda .c20 { stroke-opacity: 0.048; animation-name: cauda-20; }
+@keyframes cauda-20 { from { stroke-dashoffset: 0.8750; } to { stroke-dashoffset: -0.1250; } }
+.mapa__cauda .c21 { stroke-opacity: 0.031; animation-name: cauda-21; }
+@keyframes cauda-21 { from { stroke-dashoffset: 0.9167; } to { stroke-dashoffset: -0.0833; } }
+.mapa__cauda .c22 { stroke-opacity: 0.016; animation-name: cauda-22; }
+@keyframes cauda-22 { from { stroke-dashoffset: 0.9583; } to { stroke-dashoffset: -0.0417; } }
+.mapa__cauda .c23 { stroke-opacity: 0.005; animation-name: cauda-23; }
+@keyframes cauda-23 { from { stroke-dashoffset: 1.0000; } to { stroke-dashoffset: 0.0000; } }
+@media (prefers-reduced-motion: reduce) { html.js .mapa__cauda { display: none; } }
