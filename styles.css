@@ -1782,3 +1782,53 @@ html.anima .hero__cards .card-foto__in { animation: none; }
   .g-item--largo .foto { aspect-ratio: 16 / 10; }
 }
 @media (max-width: 899px) { .g-item:has([data-foto="vm-8"]) { grid-column: 1 / -1; grid-row: auto; } .g-item:has([data-foto="vm-8"]) .foto { aspect-ratio: 16 / 10; height: auto; min-height: 0; } }
+
+/* ---------- topo: selo grande no centro; saleirinho andando de um lado ao outro ---------- */
+.hero__palco .selo {
+  position: absolute;
+  left: 50%; top: 48%; right: auto; bottom: auto;
+  width: 44%;
+  translate: -50% -50%;
+  z-index: 2;
+}
+.mapa__nota--a { top: 2%; bottom: auto; }
+.saleiro-anda {
+  position: absolute;
+  z-index: 3;
+  left: 6%;
+  bottom: -4%;
+  width: 13%;
+  animation: saleiro-vai 16s linear infinite;
+}
+.hero__palco .saleiro-anda .hero__saleiro {
+  position: static;
+  display: block;
+  width: 100%;
+  translate: none;
+  rotate: -4deg;
+  transform-origin: 50% 100%;
+  animation: saleiro-vira 16s steps(1, end) infinite, saleiro-passo 0.42s ease-in-out infinite alternate;
+}
+@keyframes saleiro-vai {
+  0% { left: 4%; }
+  47% { left: 82%; }
+  50% { left: 82%; }
+  97% { left: 4%; }
+  100% { left: 4%; }
+}
+@keyframes saleiro-vira {
+  0% { scale: 1 1; }
+  48.5% { scale: -1 1; }
+  98.5% { scale: 1 1; }
+}
+@keyframes saleiro-passo {
+  from { translate: 0 0; rotate: -6deg; }
+  to { translate: 0 -7%; rotate: 2deg; }
+}
+@media (max-width: 760px) {
+  .hero__palco .selo { width: 64%; top: 46%; left: 50%; right: auto; bottom: auto; }
+  .saleiro-anda { width: 22%; bottom: -14%; }
+}
+@media (prefers-reduced-motion: reduce) { .saleiro-anda { left: 8%; } }
+.saleiro-anda { width: 17%; bottom: -8%; }
+@media (max-width: 760px) { .saleiro-anda { width: 26%; bottom: -16%; } }
