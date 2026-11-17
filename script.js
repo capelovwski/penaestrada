@@ -106,7 +106,6 @@
       if (r.top <= 44 && r.bottom > 44) atual = p;
     }
     nav.dataset.tema = atual.dataset.tema || "claro";
-    nav.style.setProperty("--nav-bg", getComputedStyle(atual).backgroundColor);
   }
   function aoRolar() {
     const y = window.scrollY;

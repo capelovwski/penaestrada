@@ -1377,16 +1377,7 @@ html.js .mapa__halo { opacity: 1; animation: mapa-halo 7s linear 0.3s infinite b
   justify-content: center;
   padding-block: 96px 64px;
 }
-.nav { isolation: isolate; }
-.nav::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 -32px;
-  z-index: -1;
-  pointer-events: none;
-  background: linear-gradient(var(--nav-bg, transparent) 45%, transparent);
-  transition: background 0.4s var(--ease);
-}
+
 .destino__legenda { left: 47%; top: 64%; bottom: auto; }
 
 /* ---------- prática: adesivos grandes ---------- */
