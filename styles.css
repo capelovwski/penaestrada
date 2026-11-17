@@ -271,7 +271,7 @@ button { font: inherit; color: inherit; }
   inset: 0;
   z-index: 50;
   background: #000;
-  opacity: var(--veu, 0);
+  opacity: 0;
   pointer-events: none;
 }
 .painel--creme { background: var(--creme); color: var(--verde); --linha: rgba(28, 60, 37, 0.18); }
@@ -1864,7 +1864,6 @@ html.anima .hero__cards .card-foto__in { animation: none; }
   .adesivo, .ia, .dm, .hero-saleiro { filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25)); }
   .mapa__halo { display: none; }
 }
-.card-foto__in, .adesivo, .hero-saleiro { will-change: auto; }
 
 /* luz do contorno controlada pelo script (medidas em pixels, igual em todos os navegadores) */
 .mapa.luz-js .mapa__cauda .c,
@@ -1877,3 +1876,21 @@ html:not(.js) .mapa__traco { display: inline; }
 .mapa__halo { display: none !important; }
 .mapa__cauda .c, .mapa__cauda .c0, .mapa__cauda .c1 { stroke-width: 1.6; filter: none !important; }
 .mapa__luz { stroke-width: 2.4; stroke-linecap: round; }
+
+/* ---------- fluidez ---------- */
+.painel__veu {
+  position: absolute; inset: 0; z-index: 50;
+  background: #000; opacity: 0; pointer-events: none;
+  will-change: opacity;
+}
+html.anima .painel { will-change: transform; backface-visibility: hidden; }
+/* elementos que se mexem com a rolagem ganham camada própria (sem repintar) */
+html.anima .adesivo, html.anima .ia, html.anima .dm, html.anima .hero__cards .card-foto,
+html.anima .hero__cards .card-foto__in, html.anima .g-item, html.anima .selo__anel,
+html.anima .hero-saleiro { will-change: transform; backface-visibility: hidden; }
+/* foto aparece suave quando termina de carregar; fundo neutro enquanto isso */
+html.js .foto img, html.js .card-foto__in img, html.js .equipe__camisas img { opacity: 0; transition: opacity 0.5s ease; }
+html.js .foto img.ok, html.js .card-foto__in img.ok, html.js .equipe__camisas img.ok { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .foto img, html.js .card-foto__in img, html.js .equipe__camisas img { opacity: 1; transition: none; }
+}

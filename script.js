@@ -24,6 +24,13 @@
     });
   });
 
+  /* ---------- fotos: fade curto ao terminar de carregar ---------- */
+  document.querySelectorAll(".foto img, .card-foto__in img, .equipe__camisas img").forEach((im) => {
+    const pronto = () => im.classList.add("ok");
+    if (im.complete && im.naturalWidth) pronto();
+    else { im.addEventListener("load", pronto, { once: true }); im.addEventListener("error", pronto, { once: true }); }
+  });
+
   /* ---------- botões de inscrição ---------- */
   document.querySelectorAll("[data-inscricao]").forEach((a) => {
     if (LINK_INSCRICAO) {
@@ -186,11 +193,17 @@
         { duration: T, iterations: Infinity, easing: "linear", delay: 300 }
       );
     };
-    cauda.forEach((el, k) => anima1(el, seg + 0.3, (k + 1) * seg));
+    const anims = [];
+    const _anima1 = anima1;
+    const anima2 = (el, comp, ini) => { _anima1(el, comp, ini); anims.push(...el.getAnimations()); };
+    cauda.forEach((el, k) => anima2(el, seg + 0.3, (k + 1) * seg));
     const halo = svg.querySelector(".mapa__halo");
     const luz = svg.querySelector(".mapa__luz");
-    if (halo) anima1(halo, L * 0.012, L * 0.008);
-    if (luz) anima1(luz, L * 0.012, L * 0.012);
+    if (luz) anima2(luz, L * 0.012, L * 0.012);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => anims.forEach((a) => (e.isIntersecting ? a.play() : a.pause())))
+        .observe(svg);
+    }
   });
 
   if (!anima) return; /* ======= daqui pra baixo, só com movimento ======= */
@@ -204,7 +217,6 @@
     gsap.from(alvos, {
       duration: 1.2,
       ...vars,
-      immediateRender: false,
       scrollTrigger: { trigger: gatilho || alvos, start: inicio, toggleActions: "play none none none" },
     });
 
@@ -256,8 +268,17 @@
       }
       if (i === paineis.length - 1) return;
       const curto = () => p.offsetHeight <= window.innerHeight;
-      gsap.fromTo(p, { scale: 1, "--veu": 0 }, {
-        scale: 0.95, "--veu": 0.5, ease: "none", transformOrigin: "50% 0%",
+      let veu = p.querySelector(":scope > .painel__veu");
+      if (!veu) { veu = document.createElement("div"); veu.className = "painel__veu"; p.appendChild(veu); }
+      const st = {
+        trigger: p,
+        start: () => (curto() ? "top top" : "bottom bottom"),
+        end: () => "+=" + window.innerHeight,
+        scrub: true, invalidateOnRefresh: true,
+      };
+      gsap.fromTo(veu, { opacity: 0 }, { opacity: 0.5, ease: "none", scrollTrigger: st });
+      gsap.fromTo(p, { scale: 1 }, {
+        scale: 0.95, ease: "none", transformOrigin: "50% 0%", force3D: true,
         scrollTrigger: {
           trigger: p,
           start: () => (curto() ? "top top" : "bottom bottom"),
@@ -318,11 +339,11 @@
     scrollTrigger: { trigger: manifesto, start: "top 92%", end: "bottom 74%", scrub: 0.6 },
   });
 
-  entra(".ia", { y: 30, opacity: 0, duration: 1.4, stagger: 0.08 }, ".ideia", "top 70%");
+  entra(".ia", { scale: 0.9, opacity: 0, duration: 1.4, stagger: 0.08 }, ".ideia", "top 70%");
   $$(".ia").forEach((el, i) => {
     const prof = [1.2, 0.8, 1.4, 0.6, 1, 0.9][i % 6];
     gsap.fromTo(el, { y: 50 * prof }, {
-      y: -50 * prof, ease: "none", immediateRender: false,
+      y: -50 * prof, ease: "none",
       scrollTrigger: { trigger: ".ideia", start: "top bottom", end: "bottom top", scrub: true },
     });
   });
@@ -352,11 +373,11 @@
 
   /* ---------- 04 · na prática: adesivos com profundidade ---------- */
   entra(".frentes li", { y: 18, opacity: 0, duration: 1, stagger: 0.07 }, ".frentes");
-  entra(".adesivo", { y: 24, opacity: 0, duration: 1.4, stagger: 0.06 }, ".mural-adesivos", "top 80%");
+  entra(".adesivo", { scale: 0.92, opacity: 0, duration: 1.4, stagger: 0.06 }, ".mural-adesivos", "top 80%");
   $$(".adesivo").forEach((el, i) => {
     const prof = [0.5, 1.2, 0.8, 1, 1.4, 0.7, 1.1][i % 7];
     gsap.fromTo(el, { y: 36 * prof }, {
-      y: -36 * prof, ease: "none", immediateRender: false,
+      y: -36 * prof, ease: "none",
       scrollTrigger: { trigger: ".mural-adesivos", start: "top bottom", end: "bottom top", scrub: true },
     });
   });
@@ -370,7 +391,7 @@
   entra(".dia", { y: 18, opacity: 0, stagger: 0.07 }, ".dias");
 
   /* ---------- 08 · como ir ---------- */
-  entra(".ir__chamada > *", { y: 20, opacity: 0, stagger: 0.07 }, ".ir__chamada");
+  entra(".ir__chamada > *:not(.ir__foto)", { y: 20, opacity: 0, stagger: 0.07 }, ".ir__chamada");
   entra(".ficha-ir", { y: 40, opacity: 0, duration: 1.4 }, ".ficha-ir");
   entra(".ir__foto", { y: 50, rotation: 0, opacity: 0, duration: 1.4 }, ".ir__foto", "top 92%");
 
