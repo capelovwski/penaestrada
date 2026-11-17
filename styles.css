@@ -1511,3 +1511,53 @@ html.js .mapa__cauda { animation: cauda-entra 7s linear 0.3s both; }
   .hero__palco .selo { width: 34%; right: -2%; bottom: -12%; }
 }
 @media (max-width: 760px) { .hero__palco .selo { width: 30%; right: -4%; bottom: -20%; } }
+
+/* luz: ponto intenso com halo difuso + rastro fino (sem cara de "cobrinha") */
+.mapa__luz { stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 0.004 0.996; }
+.mapa__halo {
+  stroke-width: 26;
+  stroke-opacity: 0.38;
+  stroke-linecap: round;
+  stroke-dasharray: 0.012 0.988;
+  filter: blur(10px);
+}
+html.js .mapa__luz { animation-name: luz-ponto; }
+html.js .mapa__halo { animation-name: luz-halo; }
+@keyframes luz-ponto { from { stroke-dashoffset: 0.004; } to { stroke-dashoffset: -0.996; } }
+@keyframes luz-halo { from { stroke-dashoffset: 0.008; } to { stroke-dashoffset: -0.992; } }
+.mapa__cauda .c { stroke-width: 1.3; }
+.mapa__cauda .c0, .mapa__cauda .c1 { stroke-width: 1.8; filter: drop-shadow(0 0 4px rgba(235, 51, 48, 0.55)); }
+.mapa--claro .mapa__cauda .c0, .mapa--claro .mapa__cauda .c1 { filter: drop-shadow(0 0 4px rgba(233, 228, 210, 0.6)); }
+.mapa__cauda .c0 { stroke-opacity: 0.800; }
+.mapa__cauda .c1 { stroke-opacity: 0.735; }
+.mapa__cauda .c2 { stroke-opacity: 0.672; }
+.mapa__cauda .c3 { stroke-opacity: 0.613; }
+.mapa__cauda .c4 { stroke-opacity: 0.556; }
+.mapa__cauda .c5 { stroke-opacity: 0.501; }
+.mapa__cauda .c6 { stroke-opacity: 0.450; }
+.mapa__cauda .c7 { stroke-opacity: 0.401; }
+.mapa__cauda .c8 { stroke-opacity: 0.356; }
+.mapa__cauda .c9 { stroke-opacity: 0.312; }
+.mapa__cauda .c10 { stroke-opacity: 0.272; }
+.mapa__cauda .c11 { stroke-opacity: 0.235; }
+.mapa__cauda .c12 { stroke-opacity: 0.200; }
+.mapa__cauda .c13 { stroke-opacity: 0.168; }
+.mapa__cauda .c14 { stroke-opacity: 0.139; }
+.mapa__cauda .c15 { stroke-opacity: 0.113; }
+.mapa__cauda .c16 { stroke-opacity: 0.089; }
+.mapa__cauda .c17 { stroke-opacity: 0.068; }
+.mapa__cauda .c18 { stroke-opacity: 0.050; }
+.mapa__cauda .c19 { stroke-opacity: 0.035; }
+.mapa__cauda .c20 { stroke-opacity: 0.022; }
+.mapa__cauda .c21 { stroke-opacity: 0.013; }
+.mapa__cauda .c22 { stroke-opacity: 0.006; }
+.mapa__cauda .c23 { stroke-opacity: 0.001; }
+
+/* topo: saleirinho grande no centro; selo pequeno sobre a nota do município */
+.hero__palco .hero__saleiro { width: 42%; top: 50%; }
+.hero__palco .selo { width: 17%; left: 0; right: auto; bottom: 13%; top: auto; }
+.mapa__nota--a { bottom: 0; }
+@media (max-width: 760px) {
+  .hero__palco .hero__saleiro { width: 62%; top: 46%; }
+  .hero__palco .selo { width: 28%; left: -2%; right: auto; bottom: -14%; }
+}
