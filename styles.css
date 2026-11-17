@@ -1483,3 +1483,31 @@ html.js .mapa__cauda { animation: cauda-entra 7s linear 0.3s both; }
 /* contorno só de luz: sem traço fixo e sem preenchimento da silhueta */
 .mapa__area, .mapa__traco { display: none; }
 @media (prefers-reduced-motion: reduce) { .mapa__traco { display: inline; } }
+
+/* topo: saleirinho no centro, em destaque; selo no canto */
+.hero__palco .hero__saleiro {
+  left: 50%;
+  top: 50%;
+  width: 30%;
+  translate: -50% -50%;
+  rotate: -6deg;
+  z-index: 3;
+  filter:
+    drop-shadow(4px 0 0 #f6f2e6) drop-shadow(-4px 0 0 #f6f2e6)
+    drop-shadow(0 4px 0 #f6f2e6) drop-shadow(0 -4px 0 #f6f2e6)
+    drop-shadow(0 26px 34px rgba(28, 60, 37, 0.3));
+}
+.hero__palco .selo {
+  position: absolute;
+  width: 24%;
+  left: auto;
+  top: auto;
+  right: 0;
+  bottom: -4%;
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .hero__palco .hero__saleiro { width: 46%; left: 50%; top: 48%; }
+  .hero__palco .selo { width: 34%; right: -2%; bottom: -12%; }
+}
+@media (max-width: 760px) { .hero__palco .selo { width: 30%; right: -4%; bottom: -20%; } }
