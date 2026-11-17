@@ -33,7 +33,7 @@
     <nav class="nav__lado nav__lado--dir" aria-label="Mais seções">
       <a href="#outras-vms">Outras VMs</a>
       <a href="#apoie">Apoie</a>
-      <a class="nav__pill" href="#como-ir">Quero ir</a>
+      <a class="nav__pill" href="#como-ir" data-inscricao>Inscreva-se</a>
     </nav>
     <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu-movel">Menu</button>
   </header>
@@ -54,6 +54,14 @@
   <main>
     <!-- 01 · TOPO ======================================================= -->
     <section class="painel painel--creme hero" id="topo" data-tema="claro" aria-labelledby="hero-t">
+      <div class="hero__cards" aria-label="Fotos das últimas viagens">
+        <figure class="card-foto card-foto--tras hc-c1"><div class="card-foto__in"><img src="assets/fotos/vm-grupo.webp" alt="Grupo da Juventude Cross reunido no gramado com as mãos para cima" style="object-position:50% 50%"></div></figure>
+        <figure class="card-foto card-foto--frente hc-c2"><div class="card-foto__in"><img src="assets/fotos/vm-pintura.webp" alt="Dois jovens com o rosto pintado, sorrindo para a câmera" style="object-position:35% 40%"></div></figure>
+        <figure class="card-foto card-foto--frente hc-c3"><div class="card-foto__in"><img src="assets/fotos/vm-oracao-onibus.webp" alt="Jovens orando no ônibus durante uma viagem missionária" style="object-position:50% 40%"></div></figure>
+        <figure class="card-foto card-foto--tras hc-c4"><div class="card-foto__in"><img src="assets/fotos/vm-camisetas.webp" alt="Três jovens com camisetas da viagem, sorrindo na rua" style="object-position:50% 35%"></div></figure>
+        <figure class="card-foto card-foto--frente hc-c5"><div class="card-foto__in"><img src="assets/fotos/vm-bandeja.webp" alt="Jovem sentado no alto de um muro com uma bandeja de tinta" style="object-position:50% 35%"></div></figure>
+        <figure class="card-foto card-foto--tras hc-c6"><div class="card-foto__in"><img src="assets/fotos/vm-onibus-amigas.webp" alt="Amigas sorrindo nas poltronas do ônibus" style="object-position:50% 40%"></div></figure>
+      </div>
 
       <div class="hero__centro">
         <h1 class="sr-only" id="hero-t">Pé na Estrada: viagem missionária da Juventude Cross a Ponta Grossa, 2027</h1>
@@ -105,31 +113,12 @@
         <p class="hero__vers">“Quão formosos os pés dos que anunciam a paz, dos que anunciam coisas boas!”</p>
         <p class="mono hero__ref">Romanos 10:15</p>
         <div class="hero__acoes">
-          <a class="botao botao--verde" href="#como-ir">Quero ir</a>
+          <a class="botao botao--verde" href="#como-ir" data-inscricao>Quero me inscrever <span aria-hidden="true">↗</span></a>
           <a class="botao botao--linha" href="#apoie">Quero apoiar</a>
         </div>
+        <p class="mono hero__prazo">Inscrições até 31 de janeiro de 2027</p>
       </div>
 
-      <div class="rolo" aria-label="Fotos de viagens missionárias anteriores">
-        <div class="rolo__linha">
-          <div class="rolo__trilho">
-            <div class="foto foto--r" data-foto="hero-1"><img src="assets/fotos/vm-oracao-onibus.webp" alt="Jovens orando no ônibus durante uma viagem missionária" style="object-position:50% 40%"></div>
-            <div class="foto foto--p" data-foto="hero-2"><img src="assets/fotos/vm-grupo.webp" alt="Grupo da Juventude Cross reunido no gramado com as mãos para cima" style="object-position:50% 50%"></div>
-            <div class="foto foto--r" data-foto="hero-3"><img src="assets/fotos/vm-camisetas.webp" alt="Três jovens com camisetas da viagem, sorrindo na rua" style="object-position:50% 35%"></div>
-            <div class="foto foto--q" data-foto="hero-4"><img src="assets/fotos/vm-pintura.webp" alt="Dois jovens com o rosto pintado, sorrindo para a câmera" style="object-position:35% 40%"></div>
-            <div class="foto foto--p" data-foto="hero-5"><img src="assets/fotos/vm-onibus-amigas.webp" alt="Amigas sorrindo nas poltronas do ônibus" style="object-position:50% 40%"></div>
-          </div>
-        </div>
-        <div class="rolo__linha rolo__linha--volta">
-          <div class="rolo__trilho">
-            <div class="foto foto--p" data-foto="hero-7"><img src="assets/fotos/vm-pincel.webp" alt="Duas jovens sentadas no chão com pincéis de tinta, durante uma reforma" style="object-position:50% 45%"></div>
-            <div class="foto foto--r" data-foto="hero-8"><img src="assets/fotos/vm-rolo.webp" alt="Jovem pintando uma parede com rolo e sorrindo" style="object-position:50% 35%"></div>
-            <div class="foto foto--q" data-foto="hero-9"><img src="assets/fotos/vm-pintura.webp" alt="Dois jovens com o rosto pintado, sorrindo para a câmera" style="object-position:35% 40%"></div>
-            <div class="foto foto--p" data-foto="hero-10"><img src="assets/fotos/vm-onibus-amigas.webp" alt="Amigas sorrindo nas poltronas do ônibus" style="object-position:50% 40%"></div>
-            <div class="foto foto--r" data-foto="hero-11"><img src="assets/fotos/vm-bandeja.webp" alt="Jovem sentado no alto de um muro com uma bandeja de tinta" style="object-position:50% 35%"></div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- 02 · A IDEIA ===================================================== -->
@@ -157,6 +146,10 @@
           <div><dt class="mono">Duração</dt><dd>5 dias</dd></div>
           <div><dt class="mono">Equipes</dt><dd>Geral, Staff, Líderes e Saúde</dd></div>
         </dl>
+      </div>
+      <div class="wrap ideia__fotos">
+        <figure class="card-foto if-1"><div class="card-foto__in"><img src="assets/fotos/vm-camisetas.webp" alt="Três jovens com camisetas da viagem, sorrindo na rua" style="object-position:50% 35%" loading="lazy"></div></figure>
+        <figure class="card-foto if-2"><div class="card-foto__in"><img src="assets/fotos/vm-oracao-onibus.webp" alt="Jovens orando no ônibus durante uma viagem missionária" style="object-position:50% 40%" loading="lazy"></div></figure>
       </div>
       <div class="wrap">
         <figure class="versos">
@@ -218,13 +211,15 @@
           </ol>
         </div>
 
-        <div class="mural-adesivos" aria-hidden="true">
-          <img class="adesivo a-selo" src="assets/marca/pe-na-estrada-selo-completo-original.svg" alt="">
-          <img class="adesivo a-bandeira" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="">
-          <img class="adesivo a-pedra" src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="">
-          <img class="adesivo a-etiqueta" src="assets/marca/pe-na-estrada-etiqueta.webp" alt="">
-          <img class="adesivo a-saleiro" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="">
-          <svg class="adesivo a-cross" viewBox="0 0 304 156"><use href="#cross-logo"/></svg>
+        <div class="mural-adesivos">
+          <img class="adesivo a-selo" aria-hidden="true" src="assets/marca/pe-na-estrada-selo-completo-original.svg" alt="">
+          <img class="adesivo a-bandeira" aria-hidden="true" src="assets/marca/pe-na-estrada-bandeirinha-27-original.svg" alt="">
+          <img class="adesivo a-pedra" aria-hidden="true" src="assets/marca/pe-na-estrada-emblema-pedra-original.svg" alt="">
+          <img class="adesivo a-etiqueta" aria-hidden="true" src="assets/marca/pe-na-estrada-etiqueta.webp" alt="">
+          <img class="adesivo a-saleiro" aria-hidden="true" src="assets/marca/pe-na-estrada-saleiro-original.svg" alt="">
+          <svg class="adesivo a-cross" viewBox="0 0 304 156" aria-hidden="true"><use href="#cross-logo"/></svg>
+          <figure class="card-foto mp-1"><div class="card-foto__in"><img src="assets/fotos/vm-pincel.webp" alt="Duas jovens sentadas no chão com pincéis de tinta, durante uma reforma" style="object-position:50% 45%" loading="lazy"></div></figure>
+          <figure class="card-foto mp-2"><div class="card-foto__in"><img src="assets/fotos/vm-rolo.webp" alt="Jovem pintando uma parede com rolo e sorrindo" style="object-position:50% 35%" loading="lazy"></div></figure>
         </div>
       </div>
     </section>
@@ -375,6 +370,8 @@
         <figure class="g-item g-item--alto"><div class="foto" data-foto="vm-4"><img src="assets/fotos/vm-rolo.webp" alt="Jovem pintando uma parede com rolo e sorrindo" style="object-position:50% 35%" loading="lazy"></div></figure>
         <figure class="g-item"><div class="foto" data-foto="vm-5"><img src="assets/fotos/vm-bandeja.webp" alt="Jovem sentado no alto de um muro com uma bandeja de tinta" style="object-position:50% 35%" loading="lazy"></div></figure>
         <figure class="g-item g-item--largo"><div class="foto" data-foto="vm-6"><img src="assets/fotos/vm-onibus-amigas.webp" alt="Amigas sorrindo nas poltronas do ônibus" style="object-position:50% 40%" loading="lazy"></div></figure>
+        <figure class="g-item"><div class="foto" data-foto="vm-7"><img src="assets/fotos/vm-camisetas.webp" alt="Três jovens com camisetas da viagem, sorrindo na rua" style="object-position:50% 35%" loading="lazy"></div></figure>
+        <figure class="g-item g-item--alto"><div class="foto" data-foto="vm-8"><img src="assets/fotos/vm-pintura.webp" alt="Dois jovens com o rosto pintado, sorrindo para a câmera" style="object-position:35% 40%" loading="lazy"></div></figure>
         <div class="galeria__fim">
           <p class="mono rotulo">Próxima parada</p>
           <p class="titulo titulo--md">Ponta Grossa, 2027.</p>
@@ -388,8 +385,10 @@
         <div class="ir__chamada">
           <p class="mono rotulo">Como ir</p>
           <h2 class="titulo titulo--lg" id="ir-t">Garanta seu lugar no ônibus</h2>
-          <!-- TROCAR: href pelo link do formulário de inscrição -->
-          <a class="botao botao--creme botao--g" href="#">Fazer minha inscrição <span aria-hidden="true">↗</span></a>
+          <a class="botao botao--creme botao--g" href="#como-ir" data-inscricao>Fazer minha inscrição <span aria-hidden="true">↗</span></a>
+          <figure class="card-foto ir__foto"><div class="card-foto__in"><img src="assets/fotos/vm-onibus-amigas.webp" alt="Amigas sorrindo nas poltronas do ônibus" style="object-position:50% 40%" loading="lazy"></div>
+            <img class="ir__saleiro" src="assets/marca/pe-na-estrada-saleiro-b.webp" alt="" aria-hidden="true">
+          </figure>
         </div>
 
         <div class="ficha-ir">
@@ -502,7 +501,7 @@
           <p class="fim__etiqueta mono">Inscrições até 31 de janeiro de 2027</p>
           <p class="titulo fim__frase">Bora pôr o pé na estrada?</p>
           <div class="fim__acoes">
-            <a class="botao botao--creme botao--xg" href="#como-ir">Quero ir <span aria-hidden="true">↗</span></a>
+            <a class="botao botao--creme botao--xg" href="#como-ir" data-inscricao>Quero me inscrever <span aria-hidden="true">↗</span></a>
             <a class="botao botao--linha botao--xg" href="#apoie">Quero apoiar</a>
           </div>
           <ul class="fim__fatos mono">
@@ -527,6 +526,10 @@
     </footer>
   </main>
 
+  <a class="inscricao-fixa" href="#como-ir" data-inscricao>
+    <span class="inscricao-fixa__txt"><b>Inscreva-se</b><span class="mono">até 31 jan 2027</span></span>
+    <span class="inscricao-fixa__seta" aria-hidden="true">↗</span>
+  </a>
   <div class="aviso" role="status" aria-live="polite"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

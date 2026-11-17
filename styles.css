@@ -1567,3 +1567,218 @@ html.js .mapa__halo { animation-name: luz-halo; }
 .foto img { filter: saturate(0.92) contrast(1.03); }
 
 .galeria__pista { scroll-padding-inline: var(--gutter); }
+
+/* =====================================================================
+   FOTOS EM CARDS · INSCRIÇÃO · CELULAR
+   ===================================================================== */
+
+/* card de foto: borda creme de adesivo, cantos arredondados, sombra macia */
+.card-foto { margin: 0; position: relative; }
+.card-foto__in {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 6px solid #f6f2e6;
+  background: var(--creme-2);
+  box-shadow: 0 24px 40px -18px rgba(28, 60, 37, 0.45), 0 2px 6px rgba(28, 60, 37, 0.12);
+  aspect-ratio: var(--ar, 3 / 2);
+}
+.card-foto__in img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.card-foto--retrato .card-foto__in, .card-foto.retrato .card-foto__in { --ar: 4 / 5; }
+
+/* ---------- topo: cards flutuando em volta do mapa ---------- */
+.hero { --espiada: 0px; }
+.hero__centro { position: relative; z-index: 2; }
+.hero__cards { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero__cards .card-foto { position: absolute; rotate: var(--r, 0deg); pointer-events: auto; }
+.hero__cards .card-foto--frente { z-index: 3; }
+.hero__cards .card-foto__in { animation: flutuar var(--t, 7s) ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+html.anima .hero__cards .card-foto__in { animation: none; }
+@keyframes flutuar { from { translate: 0 -6px; } to { translate: 0 8px; } }
+.hc-c1 { --r: -5deg; left: -2.5%; top: 13%; width: 19vw; }
+.hc-c2 { --r: 4deg; left: 4.5%; bottom: 10%; width: 16vw; --d: -2s; }
+.hc-c3 { --r: -3deg; left: 8%; top: 41%; width: 11vw; --d: -4s; --t: 8s; }
+.hc-c3 .card-foto__in, .hc-c5 .card-foto__in { --ar: 4 / 5; }
+.hc-c4 { --r: 5deg; right: -2%; top: 15%; width: 18vw; --d: -1s; --t: 8s; }
+.hc-c5 { --r: 4deg; right: 7%; top: 44%; width: 11vw; --d: -3s; }
+.hc-c6 { --r: -4deg; right: -1.5%; bottom: 7%; width: 17vw; --d: -5s; }
+.hero__prazo { margin-top: 18px; opacity: 0.65; }
+@media (max-width: 1100px) {
+  .hc-c3, .hc-c5 { display: none; }
+  .hc-c1 { width: 24vw; top: 11%; }
+  .hc-c4 { width: 22vw; top: 12%; }
+  .hc-c2 { width: 22vw; bottom: 6%; }
+  .hc-c6 { width: 22vw; bottom: 5%; }
+}
+
+/* ---------- a ideia: par de fotos ---------- */
+.ideia__fotos {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items: center;
+  margin-top: clamp(64px, 8vw, 110px);
+  max-width: 1040px;
+}
+.if-1 { rotate: -2.5deg; }
+.if-2 { rotate: 3deg; margin-top: 18%; }
+.if-2 .card-foto__in { --ar: 4 / 5; }
+.ideia__fotos .card-foto__in { border-color: var(--creme); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.55); }
+
+/* ---------- na prática: adesivos mais juntos + 2 fotos ---------- */
+.mural-adesivos .card-foto { position: absolute; z-index: 1; }
+.mural-adesivos .card-foto__in { box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.6); }
+.mural-adesivos .adesivo { z-index: 2; }
+.a-bandeira { left: 0%; top: 6%; width: 40%; rotate: -10deg; }
+.a-pedra { left: 66%; top: 3%; width: 29%; rotate: 7deg; }
+.mp-1 { left: 10%; top: 21%; width: 52%; rotate: -4deg; }
+.a-selo { left: 48%; top: 22%; width: 48%; rotate: 5deg; z-index: 3; }
+.a-saleiro { left: 2%; top: 49%; width: 25%; rotate: -8deg; z-index: 3; }
+.mp-2 { left: 30%; top: 47%; width: 33%; rotate: 3deg; }
+.mp-2 .card-foto__in { --ar: 4 / 5; }
+.a-etiqueta { left: 58%; top: 58%; width: 40%; rotate: -7deg; }
+.a-cross { left: 8%; top: 79%; width: 46%; rotate: -9deg; }
+
+/* ---------- como ir: foto do ônibus ---------- */
+.ir__foto { margin-top: clamp(36px, 5vw, 56px); max-width: 520px; rotate: -2.5deg; }
+.ir__foto .card-foto__in { border-color: var(--creme); box-shadow: 0 30px 50px -22px rgba(80, 10, 8, 0.6); }
+.ir__saleiro { position: absolute; right: -6%; bottom: -12%; width: 24%; rotate: 10deg; filter: drop-shadow(0 12px 16px rgba(80, 10, 8, 0.4)); }
+
+/* ---------- botão fixo de inscrição ---------- */
+.inscricao-fixa {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right, 0px));
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 10px 10px 22px;
+  border-radius: 999px;
+  background: var(--vermelho);
+  color: var(--creme);
+  box-shadow: 0 18px 34px -12px rgba(120, 20, 18, 0.6);
+  transform: translateY(calc(100% + 40px));
+  opacity: 0;
+  transition: transform 0.5s var(--ease), opacity 0.3s, background-color 0.3s;
+}
+.inscricao-fixa.mostra { transform: none; opacity: 1; }
+.inscricao-fixa:hover { background: var(--vermelho-escuro); }
+.inscricao-fixa__txt { display: grid; line-height: 1.15; }
+.inscricao-fixa__txt b { font-weight: 700; font-size: 1rem; }
+.inscricao-fixa__txt .mono { font-size: 0.62rem; opacity: 0.85; }
+.inscricao-fixa__seta {
+  display: grid; place-items: center;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--creme); color: var(--vermelho);
+  font-weight: 800; font-size: 1.2rem;
+  transition: transform 0.4s var(--ease);
+}
+.inscricao-fixa:hover .inscricao-fixa__seta { transform: rotate(45deg); }
+
+/* =====================================================================
+   CELULAR (até 760px): reorganização das seções
+   ===================================================================== */
+@media (max-width: 760px) {
+  .painel { padding-block: 84px; }
+  .titulo--xl { font-size: clamp(3.2rem, 16vw, 5rem); }
+  .titulo--lg { font-size: clamp(2.3rem, 11vw, 3.4rem); }
+
+  /* topo */
+  .hero { padding-bottom: 0; }
+  .hero__centro { min-height: 100svh; padding-top: 168px; padding-bottom: 96px; justify-content: flex-start; }
+  .hero__palco { margin-block: 4% 6%; }
+  .hc-c1 { width: 44vw; left: -9vw; top: 74px; }
+  .hc-c4 { width: 40vw; right: -8vw; top: 92px; }
+  .hc-c2 { width: 34vw; left: -6vw; bottom: 10px; }
+  .hc-c6 { width: 34vw; right: -6vw; bottom: 22px; }
+  .hero__acoes { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; }
+  .hero__acoes .botao { width: 100%; }
+
+  /* ideia */
+  .ideia__fotos { grid-template-columns: 1fr 0.8fr; gap: 12px; margin-top: 56px; }
+  .ideia__fotos .card-foto__in { border-width: 4px; border-radius: 12px; }
+  .ia-saleiro-a { top: 1%; right: 3%; width: 64px; }
+  .ia-saleiro-b { bottom: 1%; left: 3%; width: 64px; }
+  .ia-etiqueta { bottom: 1%; right: 3%; width: 96px; }
+  .versos { margin-top: 64px; margin-bottom: 64px; }
+  .versos .manifesto { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+
+  /* destino */
+  .destino__grade { gap: 40px; }
+
+  /* prática: mural mais baixo */
+  .mural-adesivos { height: 150vw; max-height: 640px; margin-top: 8px; }
+  .mural-adesivos .card-foto__in { border-width: 4px; border-radius: 12px; }
+
+  /* equipes: carrossel horizontal com dedo */
+  .equipes__grade {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    gap: 12px;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .equipes__grade::-webkit-scrollbar { display: none; }
+  .equipes__grade .equipe { flex: 0 0 82%; scroll-snap-align: start; }
+
+  /* roteiro */
+  .passe__cidade { font-size: 2.1rem; }
+
+  /* galeria: cards menores, rolagem com o dedo */
+  .g-item { width: 64vw; }
+  .g-item .foto { height: 78vw; }
+  .g-item--alto .foto { height: 92vw; }
+  .g-item--largo { width: 82vw; }
+  .g-item--largo .foto { height: 58vw; }
+
+  /* como ir */
+  .ir__foto { max-width: 100%; margin-top: 32px; }
+  .ir__chamada .botao--g { width: 100%; }
+
+  /* apoie */
+  .apoios { gap: 28px; }
+
+  /* CTA final */
+  .fim .fim__frase { font-size: clamp(3.2rem, 15vw, 4.6rem); }
+  .fim__acoes { flex-direction: column; align-items: stretch; width: 100%; }
+  .fim__acoes .botao { width: 100%; }
+  .fim__mapa { opacity: 0.6; }
+
+  /* botão fixo vira barra de largura total */
+  .inscricao-fixa {
+    left: 12px; right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    justify-content: space-between;
+  }
+  .fim__base { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* galeria no celular/tablet: mosaico em 2 colunas, sem rolagem lateral */
+@media (max-width: 899px) {
+  .galeria__pista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+    gap: 10px;
+    overflow: visible;
+    scroll-snap-type: none;
+    align-items: stretch;
+  }
+  .galeria__intro, .galeria__fim { grid-column: 1 / -1; width: auto; padding: 0; }
+  .galeria__intro { margin-bottom: 18px; }
+  .galeria__fim { margin-top: 28px; }
+  .galeria__dica { display: none; }
+  .g-item, .g-item--largo { width: auto; }
+  .g-item .foto, .g-item--alto .foto, .g-item--largo .foto { height: auto; aspect-ratio: 4 / 5; }
+  .g-item--alto { grid-row: span 2; }
+  .g-item--alto .foto { aspect-ratio: auto; height: 100%; min-height: 100%; }
+  .g-item--largo { grid-column: 1 / -1; }
+  .g-item--largo .foto { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 899px) { .g-item:has([data-foto="vm-8"]) { grid-column: 1 / -1; grid-row: auto; } .g-item:has([data-foto="vm-8"]) .foto { aspect-ratio: 16 / 10; height: auto; min-height: 0; } }

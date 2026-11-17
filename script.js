@@ -1,6 +1,11 @@
 /* Pé na Estrada — interações e animações
    Funciona sem GSAP/Lenis (tudo visível e estático); com eles, ganha movimento. */
 (() => {
+  /* ====== LINK DO FORMULÁRIO DE INSCRIÇÃO ======
+     Cole aqui o link (Google Forms, Typeform etc.). Enquanto estiver vazio,
+     os botões de inscrição levam até a seção "Como ir". */
+  const LINK_INSCRICAO = "";
+
   const raiz = document.documentElement;
   raiz.classList.add("js");
 
@@ -18,6 +23,27 @@
       trilho.appendChild(copia);
     });
   });
+
+  /* ---------- botões de inscrição ---------- */
+  document.querySelectorAll("[data-inscricao]").forEach((a) => {
+    if (LINK_INSCRICAO) {
+      a.href = LINK_INSCRICAO;
+      a.target = "_blank";
+      a.rel = "noopener";
+    } else if (a.closest("#como-ir")) {
+      a.href = "#";
+    }
+  });
+  const fixa = document.querySelector(".inscricao-fixa");
+  if (fixa && "IntersectionObserver" in window) {
+    const visiveis = new Set();
+    const alvos = [".hero", "#como-ir", ".fim"].map((q) => document.querySelector(q)).filter(Boolean);
+    const obs = new IntersectionObserver((es) => {
+      es.forEach((e) => (e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)));
+      fixa.classList.toggle("mostra", visiveis.size === 0);
+    }, { threshold: 0.12 });
+    alvos.forEach((el) => obs.observe(el));
+  }
 
   /* ---------- aviso (toast) ---------- */
   const aviso = $(".aviso");
@@ -85,7 +111,7 @@
   $$('a[href^="#"]').forEach((a) =>
     a.addEventListener("click", (e) => {
       const id = a.getAttribute("href");
-      if (id === "#") { e.preventDefault(); avisar("Link de inscrição em breve"); return; }
+      if (id === "#") { e.preventDefault(); avisar("O link de inscrição sai em breve"); return; }
       const alvo = $(id);
       if (!alvo) return;
       e.preventDefault();
@@ -216,7 +242,6 @@
   gsap.from(".hero__vers, .hero__ref, .hero__acoes", { y: 16, duration: 1.4, stagger: 0.08, delay: 0.9 });
   gsap.from(".mapa__nota", { opacity: 0, duration: 1.2, stagger: 0.15, delay: 2.4 });
   gsap.from(".hero__saleiro", { x: 40, y: -10, rotation: 8, opacity: 0, duration: 1.8, delay: 1.3 });
-  gsap.from(".rolo__linha", { x: (i) => (i ? -60 : 60), duration: 2, delay: 0.4 });
   gsap.to(".hero__palco .selo", {
     yPercent: -8, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
@@ -224,6 +249,26 @@
   gsap.to(".mapa", {
     scale: 1.06, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
+  });
+
+  // cards de foto do topo: entram em sequência e reagem ao mouse e à rolagem
+  gsap.from(".hero__cards .card-foto", { opacity: 0, scale: 0.9, y: 30, duration: 1.6, stagger: 0.09, delay: 0.5 });
+  $$(".hero__cards .card-foto").forEach((c, i) => {
+    const prof = [0.6, 1.3, 1.1, 0.7, 1.4, 0.8][i % 6];
+    gsap.to(c, { yPercent: -18 * prof, ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  });
+  mm.add("(hover: hover) and (pointer: fine)", () => {
+    const cs = $$(".hero__cards .card-foto__in");
+    const fx = cs.map((c) => gsap.quickTo(c, "x", { duration: 1.2, ease: "power3" }));
+    const fy = cs.map((c) => gsap.quickTo(c, "y", { duration: 1.2, ease: "power3" }));
+    const mover = (e) => {
+      const dx = e.clientX / innerWidth - 0.5, dy = e.clientY / innerHeight - 0.5;
+      cs.forEach((_, i) => { const p = [10, 22, 18, 12, 24, 14][i % 6]; fx[i](-dx * p); fy[i](-dy * p); });
+    };
+    const hero = $(".hero");
+    hero.addEventListener("mousemove", mover);
+    return () => hero.removeEventListener("mousemove", mover);
   });
 
   /* ---------- 02 · ideia ---------- */
@@ -249,6 +294,8 @@
       scrollTrigger: { trigger: ".ideia", start: "top bottom", end: "bottom top", scrub: true },
     });
   });
+
+  entra(".ideia__fotos .card-foto", { y: 50, opacity: 0, duration: 1.4, stagger: 0.12 }, ".ideia__fotos");
 
   /* ---------- 03 · destino ---------- */
   entra(".destino__emblema img", { y: 40, opacity: 0, duration: 1.6, delay: 0.15 }, ".destino__mapa");
@@ -293,6 +340,7 @@
   /* ---------- 08 · como ir ---------- */
   entra(".ir__chamada > *", { y: 20, opacity: 0, stagger: 0.07 }, ".ir__chamada");
   entra(".ficha-ir", { y: 40, opacity: 0, duration: 1.4 }, ".ficha-ir");
+  entra(".ir__foto", { y: 50, rotation: 0, opacity: 0, duration: 1.4 }, ".ir__foto", "top 92%");
 
 
   /* ---------- 10 · apoie / 11 · dúvidas / fim ---------- */
