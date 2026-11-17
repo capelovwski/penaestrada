@@ -239,7 +239,7 @@
   manifesto.innerHTML = manifesto.textContent.trim().split(/\s+/).map((w) => `<span class="p">${w}</span>`).join(" ");
   gsap.to(".manifesto .p", {
     opacity: 1, ease: "none", stagger: 0.08,
-    scrollTrigger: { trigger: manifesto, start: "top 82%", end: "bottom 40%", scrub: true },
+    scrollTrigger: { trigger: manifesto, start: "top 92%", end: "bottom 74%", scrub: 0.6 },
   });
 
   entra(".ia", { y: 30, opacity: 0, duration: 1.4, stagger: 0.08 }, ".ideia", "top 70%");
