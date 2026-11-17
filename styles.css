@@ -1561,3 +1561,9 @@ html.js .mapa__halo { animation-name: luz-halo; }
   .hero__palco .hero__saleiro { width: 62%; top: 46%; }
   .hero__palco .selo { width: 28%; left: -2%; right: auto; bottom: -14%; }
 }
+
+/* fotos reais: tom quente leve, sem a silhueta de espaço reservado */
+.foto:has(img)::before { display: none; }
+.foto img { filter: saturate(0.92) contrast(1.03); }
+
+.galeria__pista { scroll-padding-inline: var(--gutter); }
