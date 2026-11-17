@@ -1479,3 +1479,7 @@ html.js .mapa__cauda { animation: cauda-entra 7s linear 0.3s both; }
 .mapa__cauda .c23 { stroke-opacity: 0.005; animation-name: cauda-23; }
 @keyframes cauda-23 { from { stroke-dashoffset: 1.0000; } to { stroke-dashoffset: 0.0000; } }
 @media (prefers-reduced-motion: reduce) { html.js .mapa__cauda { display: none; } }
+
+/* contorno só de luz: sem traço fixo e sem preenchimento da silhueta */
+.mapa__area, .mapa__traco { display: none; }
+@media (prefers-reduced-motion: reduce) { .mapa__traco { display: inline; } }
